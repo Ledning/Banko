@@ -39,7 +39,7 @@ namespace BankoProject.Models
     private PlateInfo _plateInfo;
     private string _plateInfoText;
     private BingoNumberBoard _numberBoard;
-
+    
     //any aggregated objects; settings object(general/specific), lists of objects for the competitions held during the event,
     [XmlArray("CompetitionList")] [XmlArrayItem("Competition")] private BindableCollection<CompetitionObject>
       _competitionList; //A list of all the competitions during the game

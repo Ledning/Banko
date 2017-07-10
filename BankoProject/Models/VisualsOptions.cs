@@ -10,6 +10,7 @@ namespace BankoProject.Models
 {
   /// <summary>
   /// Why does this class exist. it should be migrated into WinSettings or something. Atleast not here and not name like this its retarded. 
+  /// Stuff added about the visibility options should be contained in this class, consider moving boos + userdefscreens to another class
   /// </summary>
   [Serializable]
   public class VisualsOptions : PropertyChangedBase
@@ -47,5 +48,10 @@ namespace BankoProject.Models
       set { _userDefinedScreen = value; NotifyOfPropertyChange(() => UserDefinedScreen);}
     }
 #endregion
+
+
+
+
+
   }
 }
