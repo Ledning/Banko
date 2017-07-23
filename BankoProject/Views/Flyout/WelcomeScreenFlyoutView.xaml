@@ -1,11 +1,28 @@
 ﻿<UserControl x:Class="BankoProject.Views.Flyout.WelcomeScreenFlyoutView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:BankoProject.Views.Flyout"
              xmlns:metro="clr-namespace:MahApps;assembly=MahApps.Metro"
-             mc:Ignorable="d" 
-             >
-  
+             mc:Ignorable="d"
+             xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit">
+  <StackPanel>
+    <Border Margin="0,0,0,5" Background="CornflowerBlue">
+      <Label Content="Farveskema" FontSize="20" HorizontalAlignment="Center" />
+    </Border>
+    <Border Background="CornflowerBlue">
+      <Label Content="Grundfarve" FontSize="13" HorizontalAlignment="Center" />
+    </Border>
+    <xctk:ColorPicker ColorMode="ColorCanvas" Height="20" />
+    <Border Background="CornflowerBlue">
+      <Label Content="Tekst-farve" FontSize="13" HorizontalAlignment="Center" />
+    </Border>
+    <xctk:ColorPicker ColorMode="ColorCanvas" Height="20" />
+    <Border Background="CornflowerBlue">
+      <Label Content="Knap-farve" FontSize="13" HorizontalAlignment="Center" />
+    </Border>
+    <xctk:ColorPicker ColorMode="ColorCanvas" Height="20" />
+  </StackPanel>
+
 </UserControl>

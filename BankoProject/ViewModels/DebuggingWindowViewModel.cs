@@ -19,13 +19,16 @@ namespace BankoProject.ViewModels
   class DebuggingWindowViewModel : Screen, IHandle<CommunicationObject>
   {
     #region Fields
+
     private IEventAggregator _eventAggregator;
     private IWindowManager _windowManager;
     private WinSettings _winSngs;
     private BingoEvent _event;
+
     #endregion
 
     #region Constructors
+
     public DebuggingWindowViewModel(int width, int height, int left, int top)
     {
       WinSngs = new WinSettings();
@@ -36,9 +39,11 @@ namespace BankoProject.ViewModels
       WinSngs.CurrentWindow = ApplicationWideEnums.MessageTypes.ChngWelcomeView.ToString();
       DisplayName = "DebuggingWindow";
     }
+
     #endregion
 
     #region Properties
+
     public WinSettings WinSngs
     {
       get { return _winSngs; }
@@ -57,10 +62,12 @@ namespace BankoProject.ViewModels
         _event = value;
         NotifyOfPropertyChange(() => Event);
       }
-    } 
+    }
+
     #endregion
 
     #region Overrides of ViewAware
+
     protected override void OnViewReady(object view)
     {
       _eventAggregator = IoC.Get<IEventAggregator>();
@@ -69,9 +76,11 @@ namespace BankoProject.ViewModels
       Event = IoC.Get<BingoEvent>();
       NotifyOfPropertyChange(() => CanGeneratePlatesButton);
     }
+
     #endregion
 
     #region Methods
+
     public void RebootPrezScreen()
     {
       CommunicationObject rbps = new CommunicationObject(ApplicationWideEnums.MessageTypes.RbPrezScreen,
@@ -145,12 +154,12 @@ namespace BankoProject.ViewModels
       //settings.ResizeMode = ResizeMode.NoResize;
       //settings.Width = 200;
       //settings.Height = 120;
-      var result = _windowManager.ShowDialog(dialog/*, null, settings*/);
+      var result = _windowManager.ShowDialog(dialog /*, null, settings*/);
       if (result == true)
       {
       }
-    } 
-    
+    }
+
     public void exitProgram()
     {
       Environment.Exit(1);
@@ -162,6 +171,7 @@ namespace BankoProject.ViewModels
         ApplicationWideEnums.SenderTypes.DebuggingView);
       _eventAggregator.PublishOnUIThread(chwe);
     }
+
     #endregion
 
     #region Implementation of IHandle<CommunicationObject>

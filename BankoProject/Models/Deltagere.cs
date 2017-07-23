@@ -15,13 +15,14 @@ namespace BankoProject.Models
     //use "removePlayer" method in countdownTimerControlViewmModel to remove players
     //It it numbers yes, but call it as many times as needed. bounds should be from 1 - 10
     private string name;
+
     private int time;
     private bool isFinished;
 
     public Deltagere()
     {
-
     }
+
     public Deltagere(string name)
     {
       this.name = name;
@@ -30,18 +31,31 @@ namespace BankoProject.Models
     public string Name
     {
       get { return name; }
-      set { name = value; NotifyOfPropertyChange(() => Name);}
+      set
+      {
+        name = value;
+        NotifyOfPropertyChange(() => Name);
+      }
     }
 
     public int Time
-    { get { return time; }
-      set { time = value; NotifyOfPropertyChange(() => Name); }
+    {
+      get { return time; }
+      set
+      {
+        time = value;
+        NotifyOfPropertyChange(() => Name);
+      }
     }
 
     public bool IsFinished
     {
       get { return isFinished; }
-      set { isFinished = value; NotifyOfPropertyChange(() => IsFinished); }
+      set
+      {
+        isFinished = value;
+        NotifyOfPropertyChange(() => IsFinished);
+      }
     }
   }
 }

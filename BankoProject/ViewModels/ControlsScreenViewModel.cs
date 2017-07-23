@@ -7,7 +7,6 @@ using Catel.MVVM;
 using Caliburn.Micro;
 using BankoProject.Tools;
 using BankoProject.Models;
-using System.ComponentModel.Composition;
 using System.Windows.Media;
 
 namespace BankoProject.ViewModels
@@ -15,22 +14,30 @@ namespace BankoProject.ViewModels
   public sealed class ControlsScreenViewModel : Screen, IMainViewItem
   {
     #region Fields
+
     private OptionsFlyoutViewModel _OFVM;
     private ControlOptions _COptions;
     private BingoNumberBoard _BNBoard;
-    private Random randomNumber; //use to pick new random number. Maybe make into seperate class that adjusts according to prev numbers being picked.
+
+    private Random randomNumber
+      ; //use to pick new random number. Maybe make into seperate class that adjusts according to prev numbers being picked.
+
     private readonly SolidColorBrush _defaultBrush = Brushes.Black;
+
     #endregion
 
     #region Constructors
+
     public ControlsScreenViewModel()
     {
       OFVM = new OptionsFlyoutViewModel();
       _BNBoard = new BingoNumberBoard();
-    } 
+    }
+
     #endregion
 
     #region Wrappers
+
     /*public void Pick(int num)
     {
       BNBoard.PickNumber(num);
@@ -43,15 +50,14 @@ namespace BankoProject.ViewModels
     {
       BNBoard.ResetBoard();
     }*/
+
     #endregion
 
     #region Properties
+
     public OptionsFlyoutViewModel OFVM
     {
-      get
-      {
-        return _OFVM;
-      }
+      get { return _OFVM; }
 
       set
       {
@@ -59,12 +65,10 @@ namespace BankoProject.ViewModels
         NotifyOfPropertyChange(() => OFVM);
       }
     }
+
     public ControlOptions COptions
     {
-      get
-      {
-        return _COptions;
-      }
+      get { return _COptions; }
 
       set
       {
@@ -72,12 +76,10 @@ namespace BankoProject.ViewModels
         NotifyOfPropertyChange(() => COptions);
       }
     }
+
     public BingoNumberBoard BNBoard
     {
-      get
-      {
-        return _BNBoard;
-      }
+      get { return _BNBoard; }
 
       set
       {
@@ -88,11 +90,9 @@ namespace BankoProject.ViewModels
 
     public SolidColorBrush DefaultBrush
     {
-      get
-      {
-        return _defaultBrush;
-      }
+      get { return _defaultBrush; }
     }
+
     #endregion
   }
 }

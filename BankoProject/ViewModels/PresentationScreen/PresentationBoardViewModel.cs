@@ -29,7 +29,11 @@ namespace BankoProject.ViewModels.PresentationScreen
     public BingoEvent Event
     {
       get { return _event; }
-      set { _event = value; NotifyOfPropertyChange(()=>Event);}
+      set
+      {
+        _event = value;
+        NotifyOfPropertyChange(() => Event);
+      }
     }
   }
 }

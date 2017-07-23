@@ -29,8 +29,7 @@ namespace BankoProject.Models
     private DateTime _resetTime;
 
 
-    [XmlIgnore]
-    private readonly ILog _log = LogManager.GetLog(typeof(BingoEvent));
+    [XmlIgnore] private readonly ILog _log = LogManager.GetLog(typeof(BingoEvent));
 
     private BankoOptions _bnkOptions;
     private CompetitionOptions _cmpOptions;
@@ -39,7 +38,7 @@ namespace BankoProject.Models
     private PlateInfo _plateInfo;
     private string _plateInfoText;
     private BingoNumberBoard _numberBoard;
-    
+
     //any aggregated objects; settings object(general/specific), lists of objects for the competitions held during the event,
     [XmlArray("CompetitionList")] [XmlArrayItem("Competition")] private BindableCollection<CompetitionObject>
       _competitionList; //A list of all the competitions during the game
@@ -50,11 +49,12 @@ namespace BankoProject.Models
     [XmlArray("AvailableNumbersQueue")] [XmlArrayItem("AvailableNumbers")] private BindableCollection<BingoNumber>
       _availableNumbersQueue; //The numbers available to be picked.
 
-    [XmlArray("LatestNumbersQueue")]
-    [XmlArrayItem("LatestNumbers")]
-    private BindableCollection<string> _latestNumbersQueue; /// <summary>
-      /// The latest 10 nubers to be picked.
-      /// </summary>
+    [XmlArray("LatestNumbersQueue")] [XmlArrayItem("LatestNumbers")]
+    private BindableCollection<string> _latestNumbersQueue;
+
+    /// <summary>
+    /// The latest 10 nubers to be picked.
+    /// </summary>
 
     #region GetterSetter
 
@@ -74,7 +74,7 @@ namespace BankoProject.Models
     {
       get { return _creationTime; }
     }
-    
+
     public BingoNumberBoard NumberBoard
     {
       get { return _numberBoard; }
@@ -96,6 +96,7 @@ namespace BankoProject.Models
         NotifyOfPropertyChange(() => CompetitionList);
       }
     }
+
     [XmlArray("BingoNumberQueue")]
     [XmlArrayItem(Type = typeof(BingoNumber))]
     public BindableCollection<BingoNumber> BingoNumberQueue
@@ -121,6 +122,7 @@ namespace BankoProject.Models
         NotifyOfPropertyChange(() => AvailableNumbersQueue);
       }
     }
+
     [XmlArray("LatestNumbersQueue")]
     [XmlArrayItem(Type = typeof(string))]
     public BindableCollection<string> LatestNumbersQueue
@@ -129,7 +131,7 @@ namespace BankoProject.Models
       set
       {
         _latestNumbersQueue = value;
-        NotifyOfPropertyChange(()=>LatestNumbersQueue);
+        NotifyOfPropertyChange(() => LatestNumbersQueue);
       }
     }
 
@@ -227,28 +229,43 @@ namespace BankoProject.Models
     public bool IsBingoRunning
     {
       get { return _isBingoRunning; }
-      set { _isBingoRunning = value; NotifyOfPropertyChange(()=>IsBingoRunning);}
+      set
+      {
+        _isBingoRunning = value;
+        NotifyOfPropertyChange(() => IsBingoRunning);
+      }
     }
 
     //Not intended to be used on interface
     public bool IsResat
     {
       get { return _isResat; }
-      set { _log.Warn("Not intended for display"); _isResat = value;}
+      set
+      {
+        _log.Warn("Not intended for display");
+        _isResat = value;
+      }
     }
 
     //Not intended to be used on interface
     public DateTime ResetTime
     {
       get { return _resetTime; }
-      set {_log.Warn("Not intended for display"); _resetTime = value;
+      set
+      {
+        _log.Warn("Not intended for display");
+        _resetTime = value;
       }
     }
 
     public TimerOptions TimeOpt
     {
       get { return _timeOpt; }
-      set { _timeOpt = value; NotifyOfPropertyChange(()=>TimeOpt);}
+      set
+      {
+        _timeOpt = value;
+        NotifyOfPropertyChange(() => TimeOpt);
+      }
     }
 
     #endregion
@@ -332,10 +349,9 @@ namespace BankoProject.Models
       {
         BingoNumber j = new BingoNumber();
         j.Value = i;
-       AvailableNumbersQueue.Add(j);
+        AvailableNumbersQueue.Add(j);
       }
     }
-
 
 
     private string GenerateSeedFromKeyword(string keyword)

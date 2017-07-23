@@ -1,32 +1,37 @@
 ﻿<UserControl
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:cal="http://www.caliburnproject.org" x:Class="BankoProject.Views.PresentationScreen.NumberBarView"
-             mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="1920" Visibility="{Binding Event.WindowSettings.PrsSettings.OverlaySettings.IsOverlayVisible}">
+  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+  xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+  xmlns:cal="http://www.caliburnproject.org" x:Class="BankoProject.Views.PresentationScreen.NumberBarView"
+  mc:Ignorable="d"
+  d:DesignHeight="300" d:DesignWidth="1920"
+  Visibility="{Binding Event.WindowSettings.PrsSettings.OverlaySettings.IsOverlayVisible}">
   <Grid Width="{Binding Event.WindowSettings.PrsSettings.Width}" Height="150" ClipToBounds="True">
     <Grid.Background>
-      <SolidColorBrush Color="Gray" Opacity="0.4"></SolidColorBrush>
+      <SolidColorBrush Color="Gray" Opacity="0.4" />
     </Grid.Background>
-    <ItemsControl IsTabStop="False" ItemsSource="{Binding Event.BingoNumberQueue}" cal:Bind.AtDesignTime="True" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+    <ItemsControl IsTabStop="False" ItemsSource="{Binding Event.BingoNumberQueue}" cal:Bind.AtDesignTime="True"
+                  HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
       <ItemsControl.ItemTemplate>
         <DataTemplate>
-          <Border Tag="{Binding}" Opacity="0.87" cal:Bind.AtDesignTime="True" Background="#FF5E8F4F" CornerRadius="20" Margin="10,0" HorizontalAlignment="Center">
+          <Border Tag="{Binding}" Opacity="0.87" cal:Bind.AtDesignTime="True" Background="#FF5E8F4F" CornerRadius="20"
+                  Margin="10,0" HorizontalAlignment="Center">
             <Border.Effect>
-              <DropShadowEffect/>
+              <DropShadowEffect />
             </Border.Effect>
-            <Viewbox Stretch="Uniform" StretchDirection="DownOnly" >
-              <TextBox Text="{Binding VText, Mode=OneWay}" Width="100" Background="Transparent" HorizontalContentAlignment="Center" HorizontalAlignment="Center" BorderThickness="0" FontSize="80" FontWeight="Bold" cal:Bind.AtDesignTime="True"/>
+            <Viewbox Stretch="Uniform" StretchDirection="DownOnly">
+              <TextBox Text="{Binding VText, Mode=OneWay}" Width="100" Background="Transparent"
+                       HorizontalContentAlignment="Center" HorizontalAlignment="Center" BorderThickness="0"
+                       FontSize="80" FontWeight="Bold" cal:Bind.AtDesignTime="True" />
             </Viewbox>
           </Border>
         </DataTemplate>
       </ItemsControl.ItemTemplate>
       <ItemsControl.ItemsPanel>
         <ItemsPanelTemplate>
-          <StackPanel Height="100" Orientation="Horizontal" FlowDirection="RightToLeft" VerticalAlignment="Center" cal:Bind.AtDesignTime="True">
-          </StackPanel>
+          <StackPanel Height="100" Orientation="Horizontal" FlowDirection="RightToLeft" VerticalAlignment="Center"
+                      cal:Bind.AtDesignTime="True" />
         </ItemsPanelTemplate>
       </ItemsControl.ItemsPanel>
     </ItemsControl>

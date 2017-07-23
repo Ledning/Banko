@@ -22,7 +22,6 @@ namespace BankoProject.ViewModels.ConfirmationBoxes
     #endregion
 
 
-
     public PlateHasBingoViewModel(int plateNum, int[,] chosenPlate, List<List<int>> missingNumbersInRows, bool hasBingo)
     {
       MissingNumbersInRows = missingNumbersInRows;
@@ -51,7 +50,6 @@ namespace BankoProject.ViewModels.ConfirmationBoxes
                 AnswerText = AnswerText + " " + number;
               }
             }
-
           }
           i++;
           AnswerText = AnswerText + "\n";
@@ -71,33 +69,38 @@ namespace BankoProject.ViewModels.ConfirmationBoxes
     }
 
     #region Props
+
     public string AnswerText
     {
       get { return _answerText; }
-      set { _answerText = value; NotifyOfPropertyChange(()=>AnswerText);}
+      set
+      {
+        _answerText = value;
+        NotifyOfPropertyChange(() => AnswerText);
+      }
     }
 
     public List<List<int>> MissingNumbersInRows
     {
       get { return _missingNumbersInRows; }
-      set { _missingNumbersInRows = value; NotifyOfPropertyChange(()=>MissingNumbersInRows);}
+      set
+      {
+        _missingNumbersInRows = value;
+        NotifyOfPropertyChange(() => MissingNumbersInRows);
+      }
     }
 
     public string Brush
     {
-      get
-      {
-        return brush;
-      }
+      get { return brush; }
 
       set
       {
-        brush = value; NotifyOfPropertyChange(() => Brush);
+        brush = value;
+        NotifyOfPropertyChange(() => Brush);
       }
     }
 
     #endregion
-
-
   }
 }

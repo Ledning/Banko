@@ -10,7 +10,8 @@ namespace BankoProject.Tools
   class ControlExtensions
   {
     public static readonly DependencyProperty IsPickedProperty =
-        DependencyProperty.RegisterAttached("IsPicked", typeof(bool), typeof(ControlExtensions), new PropertyMetadata(default(bool)));
+      DependencyProperty.RegisterAttached("IsPicked", typeof(bool), typeof(ControlExtensions),
+        new PropertyMetadata(default(bool)));
 
     public static void SetIsPicked(UIElement element, bool value)
     {
@@ -19,7 +20,7 @@ namespace BankoProject.Tools
 
     public static bool GetIsPicked(UIElement element)
     {
-      return (bool)element.GetValue(IsPickedProperty);
+      return (bool) element.GetValue(IsPickedProperty);
     }
   }
 }

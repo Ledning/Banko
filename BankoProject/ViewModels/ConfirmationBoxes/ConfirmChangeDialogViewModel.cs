@@ -10,7 +10,6 @@ namespace BankoProject.ViewModels.ConfirmationBoxes
 {
   class ConfirmChangeDialogViewModel : Screen
   {
-
     public ConfirmChangeDialogViewModel()
     {
       DisplayName = "Er du sikker?";
@@ -26,8 +25,5 @@ namespace BankoProject.ViewModels.ConfirmationBoxes
     {
       TryClose(false);
     }
-
-
-
   }
 }

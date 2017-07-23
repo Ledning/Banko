@@ -21,12 +21,12 @@ namespace BankoProject.Tools
   public class CsvFileWriter : StreamWriter
   {
     public CsvFileWriter(Stream stream)
-        : base(stream)
+      : base(stream)
     {
     }
 
     public CsvFileWriter(string filename)
-        : base(filename)
+      : base(filename)
     {
     }
 
@@ -45,7 +45,7 @@ namespace BankoProject.Tools
           builder.Append(',');
         // Implement special handling for values that contain comma or quote
         // Enclose in quotes and double up any double quotes
-        if (value.IndexOfAny(new char[] { '"', ',' }) != -1)
+        if (value.IndexOfAny(new char[] {'"', ','}) != -1)
           builder.AppendFormat("\"{0}\"", value.Replace("\"", "\"\""));
         else
           builder.Append(value);
@@ -62,12 +62,12 @@ namespace BankoProject.Tools
   public class CsvFileReader : StreamReader
   {
     public CsvFileReader(Stream stream)
-        : base(stream)
+      : base(stream)
     {
     }
 
     public CsvFileReader(string filename)
-        : base(filename)
+      : base(filename)
     {
     }
 

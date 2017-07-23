@@ -23,6 +23,7 @@ namespace BankoProject.Models
   {
     //These again refer to the controlpanelWindow, not the presentationwindow. 
     private int _width;
+
     private int _height;
     private int _left;
     private int _top;
@@ -37,10 +38,7 @@ namespace BankoProject.Models
     /// <summary>
     /// List of all the available screens.
     /// </summary>
-
-    [XmlIgnore]
-    private BindableCollection<ScrnHelper> _screens;
-
+    [XmlIgnore] private BindableCollection<ScrnHelper> _screens;
 
 
     public WinSettings()
@@ -72,70 +70,110 @@ namespace BankoProject.Models
     }
 
 
-
-
     #region props
+
     public int Width
     {
       get { return _width; }
-      set { _width = value; NotifyOfPropertyChange(()=>Width);}
+      set
+      {
+        _width = value;
+        NotifyOfPropertyChange(() => Width);
+      }
     }
 
     public int Height
     {
       get { return _height; }
-      set { _height = value; NotifyOfPropertyChange(()=>Height);}
+      set
+      {
+        _height = value;
+        NotifyOfPropertyChange(() => Height);
+      }
     }
 
     public int Left
     {
       get { return _left; }
-      set { _left = value; NotifyOfPropertyChange(()=>Left);}
+      set
+      {
+        _left = value;
+        NotifyOfPropertyChange(() => Left);
+      }
     }
 
     public int Top
     {
       get { return _top; }
-      set { _top = value; NotifyOfPropertyChange(()=>Top);}
+      set
+      {
+        _top = value;
+        NotifyOfPropertyChange(() => Top);
+      }
     }
+
     [XmlIgnore]
     [_screens: NonSerialized]
     public BindableCollection<ScrnHelper> Screens
     {
       get { return _screens; }
-      set { _screens = value; NotifyOfPropertyChange(() => Screens); }
+      set
+      {
+        _screens = value;
+        NotifyOfPropertyChange(() => Screens);
+      }
     }
 
     public PresentationScreenSettings PrsSettings
     {
       get { return _prsSettings; }
-      set { _prsSettings = value; NotifyOfPropertyChange(()=> PrsSettings);}
+      set
+      {
+        _prsSettings = value;
+        NotifyOfPropertyChange(() => PrsSettings);
+      }
     }
 
     public string CurrentWindow
     {
       get { return currentWindow; }
-      set { currentWindow = value;  NotifyOfPropertyChange(()=>CurrentWindow);}
+      set
+      {
+        currentWindow = value;
+        NotifyOfPropertyChange(() => CurrentWindow);
+      }
     }
 
     public int ChoosenPresentationScreen
     {
       get { return _choosenPresentationScreen; }
-      set { _choosenPresentationScreen = value; NotifyOfPropertyChange(()=> ChoosenPresentationScreen);}
+      set
+      {
+        _choosenPresentationScreen = value;
+        NotifyOfPropertyChange(() => ChoosenPresentationScreen);
+      }
     }
 
     public string BgColor
     {
       get { return _bgColor; }
-      set { _bgColor = value; NotifyOfPropertyChange(() => BgColor); }
+      set
+      {
+        _bgColor = value;
+        NotifyOfPropertyChange(() => BgColor);
+      }
     }
 
     public string BgColorText
     {
       get { return _bgColorText; }
-      set { _bgColorText = value; NotifyOfPropertyChange(() => BgColorText); }
+      set
+      {
+        _bgColorText = value;
+        NotifyOfPropertyChange(() => BgColorText);
+      }
     }
-
   }
-#endregion
+
+  #endregion
 }

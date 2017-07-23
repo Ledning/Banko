@@ -5,32 +5,36 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BankoProject.Views"
         mc:Ignorable="d"
-        Title="DebuggingWindowView" 
-        Height="{Binding WinSngs.Height, Mode=TwoWay}" 
+        Title="DebuggingWindowView"
+        Height="{Binding WinSngs.Height, Mode=TwoWay}"
         Width="{Binding WinSngs.Width, Mode=TwoWay}"
         Left="{Binding WinSngs.Left, Mode=TwoWay}"
         Top="{Binding WinSngs.Top, Mode=TwoWay}"
-        Icon="logo.png"
-        
-        >
+        Icon="logo.png">
   <Viewbox>
     <Grid Width="696" Height="460">
-      <Button x:Name="ShowWelcome" Margin="10,19,504,376" Content="WelcomeView">
-
-      </Button>
-      <Button x:Name="ShowControl" Margin="467,19,52,376" Content="ControlPanelView"/>
-      <TextBox x:Name="currentwindow" HorizontalAlignment="Left" Height="23" Margin="26,130,0,0" TextWrapping="Wrap" Text="{Binding WinSngs.CurrentWindow}" VerticalAlignment="Top" Width="120"/>
+      <Button x:Name="ShowWelcome" Margin="10,19,504,376" Content="WelcomeView" />
+      <Button x:Name="ShowControl" Margin="467,19,52,376" Content="ControlPanelView" />
+      <TextBox x:Name="currentwindow" HorizontalAlignment="Left" Height="23" Margin="26,130,0,0" TextWrapping="Wrap"
+               Text="{Binding WinSngs.CurrentWindow}" VerticalAlignment="Top" Width="120" />
       <!--<TextBox x:Name="textBox" HorizontalAlignment="Left" Height="23" Margin="259,130,0,0" TextWrapping="Wrap" Text="{Binding Event.Settings.PrsSettings.Top, Mode=TwoWay}" VerticalAlignment="Top" Width="66" />
       <TextBox x:Name="textBox_Copy" HorizontalAlignment="Left" Height="23" Margin="350,130,0,0" TextWrapping="Wrap" Text="{Binding Event.Settings.PrsSettings.Left, Mode=TwoWay}" VerticalAlignment="Top" Width="66" />
       <TextBox x:Name="textBox_Copy1" HorizontalAlignment="Left" Height="23" Margin="259,172,0,0" TextWrapping="Wrap" Text="{Binding Event.Settings.PrsSettings.Width, Mode=TwoWay}" VerticalAlignment="Top" Width="66" />
       <TextBox x:Name="textBox_Copy2" HorizontalAlignment="Left" Height="23" Margin="350,172,0,0" TextWrapping="Wrap" Text="{Binding Event.Settings.PrsSettings.Height, Mode=TwoWay}" VerticalAlignment="Top" Width="66" />-->
-      <Label x:Name="label" Content="PrezScreen" HorizontalAlignment="Left" Margin="303,88,0,0" VerticalAlignment="Top"/>
-      <Button Content="Unusedfeelfreetouse" HorizontalAlignment="Left" Margin="259,19,0,0" VerticalAlignment="Top" Width="168" Height="64"/>
-      <Button x:Name="showPresBackground" Content="togglepresbackground" HorizontalAlignment="Left" Margin="281,226,0,0" VerticalAlignment="Top" Width="125" Height="45"/>
-      <Button x:Name="GeneratePlatesButton" Content="Generer plader" HorizontalAlignment="Left" Margin="26,226,0,0" VerticalAlignment="Top" Width="150" Height="45" />
-      <Button x:Name="CheckGenerate" Content="CheckGenerate" HorizontalAlignment="Left" Margin="57,276,0,0" VerticalAlignment="Top" Width="89" Height="29"/>
-      <Button x:Name="DialogTester" Content="Dialog Test" HorizontalAlignment="Left" Margin="489,236,0,0" VerticalAlignment="Top" Width="99" Height="35"/>
-      <Button x:Name="exitProgram" Content="Kill Bingo" HorizontalAlignment="Left" Margin="226,403,0,0" VerticalAlignment="Top" Width="165" Height="47"/></Grid>
+      <Label x:Name="label" Content="PrezScreen" HorizontalAlignment="Left" Margin="303,88,0,0" VerticalAlignment="Top" />
+      <Button Content="Unusedfeelfreetouse" HorizontalAlignment="Left" Margin="259,19,0,0" VerticalAlignment="Top"
+              Width="168" Height="64" />
+      <Button x:Name="showPresBackground" Content="togglepresbackground" HorizontalAlignment="Left"
+              Margin="281,226,0,0" VerticalAlignment="Top" Width="125" Height="45" />
+      <Button x:Name="GeneratePlatesButton" Content="Generer plader" HorizontalAlignment="Left" Margin="26,226,0,0"
+              VerticalAlignment="Top" Width="150" Height="45" />
+      <Button x:Name="CheckGenerate" Content="CheckGenerate" HorizontalAlignment="Left" Margin="57,276,0,0"
+              VerticalAlignment="Top" Width="89" Height="29" />
+      <Button x:Name="DialogTester" Content="Dialog Test" HorizontalAlignment="Left" Margin="489,236,0,0"
+              VerticalAlignment="Top" Width="99" Height="35" />
+      <Button x:Name="exitProgram" Content="Kill Bingo" HorizontalAlignment="Left" Margin="226,403,0,0"
+              VerticalAlignment="Top" Width="165" Height="47" />
+    </Grid>
 
   </Viewbox>
 </Window>

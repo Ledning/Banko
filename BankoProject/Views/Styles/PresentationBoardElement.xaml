@@ -1,17 +1,20 @@
 ﻿<UserControl x:Class="BankoProject.Views.Styles.PresentationBoardElement"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:BankoProject.Views.Styles"
-             mc:Ignorable="d" 
+             mc:Ignorable="d"
              d:DesignHeight="50" d:DesignWidth="50">
   <Viewbox>
-    <Border BorderThickness="0" CornerRadius="15" Background="#FF5E8F4F" Opacity="0.9" Width="55.62" VerticalAlignment="Center" HorizontalAlignment="Center">
+    <Border BorderThickness="0" CornerRadius="15" Background="#FF5E8F4F" Opacity="0.9" Width="55.62"
+            VerticalAlignment="Center" HorizontalAlignment="Center">
       <Border.Effect>
-        <DropShadowEffect/>
+        <DropShadowEffect />
       </Border.Effect>
-      <Label Content="" FontSize="37.333" Foreground="White" FontFamily="Showcard Gothic" Margin="5.152,0,5.031,0" VerticalAlignment="Center" d:LayoutOverrides="Width" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+      <Label Content="" FontSize="37.333" Foreground="White" FontFamily="Showcard Gothic" Margin="5.152,0,5.031,0"
+             VerticalAlignment="Center" d:LayoutOverrides="Width" VerticalContentAlignment="Center"
+             HorizontalContentAlignment="Center" />
     </Border>
   </Viewbox>
 

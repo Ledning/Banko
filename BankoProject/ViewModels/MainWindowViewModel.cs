@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using Catel.MVVM;
 using Orchestra.Views;
-using System.ComponentModel.Composition;
 using System.ComponentModel;
 using System.IO;
 using System.Reflection;
@@ -52,13 +51,14 @@ namespace BankoProject.ViewModels
     PH means placeholder
   */
 
-    //TODO: Hvis vi skal have noget applicationwide adjustment of contrast and shit, skal der bindes mange forskellige steder eller noget i den stil. 
-    //it might be possible be easier
-    //TODO: work on prez scren is not done; in particular there is missing a lot of functions for handling blank screen stuff
+  //TODO: Hvis vi skal have noget applicationwide adjustment of contrast and shit, skal der bindes mange forskellige steder eller noget i den stil. 
+  //it might be possible be easier
+  //TODO: work on prez scren is not done; in particular there is missing a lot of functions for handling blank screen stuff
 
   class MainWindowViewModel : Conductor<IMainViewItem>.Collection.OneActive, IShell, IHandle<CommunicationObject>
   {
     #region Fields
+
     private IWindowManager _winMan;
     private IEventAggregator _eventAggregator;
     private BingoEvent _bingoEvent;
@@ -66,16 +66,20 @@ namespace BankoProject.ViewModels
     private string _saveDirectory;
     private bool _directoriesInitialised;
     private IFlyoutItem _flyoutViewModel;
+
     #endregion
 
     #region Constructors
+
     public MainWindowViewModel()
     {
       ActivateItem(new WelcomeViewModel());
     }
+
     #endregion
 
     #region Properties
+
     public BingoEvent Event
     {
       get { return _bingoEvent; }
@@ -100,11 +104,17 @@ namespace BankoProject.ViewModels
     public IFlyoutItem FlyoutViewModel
     {
       get { return _flyoutViewModel; }
-      set { _flyoutViewModel = value; NotifyOfPropertyChange(() => FlyoutViewModel); }
-    } 
+      set
+      {
+        _flyoutViewModel = value;
+        NotifyOfPropertyChange(() => FlyoutViewModel);
+      }
+    }
+
     #endregion
 
     #region Overrides of ViewAware
+
     //The function below can be used as a constructor for the view. Everything in it will happen after the view is loaded.
     protected override void OnViewReady(object view)
     {
@@ -120,21 +130,23 @@ namespace BankoProject.ViewModels
       SaveDirectory = System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
       CreateApplicationDirectories();
       _directoriesInitialised = true;
-      FlyoutViewModel = new WelcomeScreenFlyoutViewModel();
-
-
+      FlyoutViewModel = /*new VisibilityOptionsViewModel();*/new WelcomeScreenFlyoutViewModel();
     }
+
     #endregion
 
     #region Methods
+
     public void OnApplicationExit()
     {
       SaveSession();
       Environment.Exit(1);
     }
+
     public void Show()
     {
     }
+
     private Type[] GetTypesInNamespace(Assembly assembly, string nameSpace)
     {
       return assembly.GetTypes().Where(t => String.Equals(t.Namespace, nameSpace, StringComparison.Ordinal)).ToArray();
@@ -179,7 +191,8 @@ namespace BankoProject.ViewModels
           CreateApplicationDirectories();
           break;
       }
-    } 
+    }
+
     #endregion
 
     #region async plate generation
@@ -190,8 +203,8 @@ namespace BankoProject.ViewModels
     private void worker_DoWork(object sender, DoWorkEventArgs e)
     {
       if (File.Exists(System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) +
-                         "\\BingoBankoKontrol\\" +
-                         Event.EventTitle + "Plader.pdf"))
+                      "\\BingoBankoKontrol\\" +
+                      Event.EventTitle + "Plader.pdf"))
       {
         _log.Info("Plates has already been generated.");
         Event.PInfo.HasPlatesBeenGenerated = true;
@@ -203,7 +216,8 @@ namespace BankoProject.ViewModels
       string outputDir = System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) +
                          "\\BingoBankoKontrol\\" +
                          Event.EventTitle + "Plader";
-      Event.PInfo.CardList = maker.MakePDF(Event.PInfo.CardGenerator.GenerateCard(Event.PInfo.PlatesGenerated), outputDir); //Takes care of generating the plates, and returning the used array. Should be secure enough.
+      Event.PInfo.CardList = maker.MakePDF(Event.PInfo.CardGenerator.GenerateCard(Event.PInfo.PlatesGenerated),
+        outputDir); //Takes care of generating the plates, and returning the used array. Should be secure enough.
       Event.PInfo.HasPlatesBeenGenerated = true;
     }
 
@@ -225,7 +239,7 @@ namespace BankoProject.ViewModels
 
     private void GoToWelcomeView()
     {
-      FlyoutViewModel= new WelcomeScreenFlyoutViewModel();
+      FlyoutViewModel = new WelcomeScreenFlyoutViewModel();
       ActivateItem(new WelcomeViewModel());
       DisplayName = "Bingo Banko";
     }
@@ -237,12 +251,15 @@ namespace BankoProject.ViewModels
       ActivateItem(new ControlPanelViewModel());
       DisplayName = "Bingo Bango: " + Event.EventTitle;
       Event.IsBingoRunning = true;
-      Event.PInfo.PlatesUsed = Event.PInfo.PlatesGenerated; //Just a standard value for platesused, vi antager bare at man bruger dem alle sammen. 
+      Event.PInfo.PlatesUsed =
+        Event.PInfo
+          .PlatesGenerated; //Just a standard value for platesused, vi antager bare at man bruger dem alle sammen. 
     }
 
     #endregion
 
     #region DirectoryStuff
+
     //TODO: Make these use a string for each of the subdirectories and the main directory, no chance of spelling error
     private bool ApplicationDirectoryExists()
     {
@@ -252,6 +269,7 @@ namespace BankoProject.ViewModels
       }
       return false;
     }
+
     private bool ApplicationSubDirectoriesExists()
     {
       bool result = false;
@@ -264,11 +282,12 @@ namespace BankoProject.ViewModels
             result = true;
           }
         }
-      }   
+      }
       else
         result = false;
       return result;
     }
+
     private bool ApplicationDirectoriesExist()
     {
       if (ApplicationDirectoryExists())
@@ -283,7 +302,7 @@ namespace BankoProject.ViewModels
 
     private void CreateApplicationDirectories()
     {
-      Directory.CreateDirectory(SaveDirectory + "\\BingoBankoKontrol");   
+      Directory.CreateDirectory(SaveDirectory + "\\BingoBankoKontrol");
       CreateLatestDirectory();
       CreateSettingsDirectory();
       CreateBackgroundsDirectories();
@@ -307,6 +326,7 @@ namespace BankoProject.ViewModels
     #endregion
 
     #region SerializingCode
+
     /// <summary>
     /// Serializes an object.
     /// </summary>
@@ -315,7 +335,10 @@ namespace BankoProject.ViewModels
     /// <param name="fileName"></param>
     public void SerializeObject<T>(T serializableObject, string fileName)
     {
-      if (serializableObject == null) { return; }
+      if (serializableObject == null)
+      {
+        return;
+      }
 
       try
       {
@@ -345,7 +368,10 @@ namespace BankoProject.ViewModels
     /// <returns></returns>
     public T DeSerializeObject<T>(string fileName)
     {
-      if (string.IsNullOrEmpty(fileName)) { return default(T); }
+      if (string.IsNullOrEmpty(fileName))
+      {
+        return default(T);
+      }
 
       T objectOut = default(T);
 
@@ -362,7 +388,7 @@ namespace BankoProject.ViewModels
           XmlSerializer serializer = new XmlSerializer(outType);
           using (XmlReader reader = new XmlTextReader(read))
           {
-            objectOut = (T)serializer.Deserialize(reader);
+            objectOut = (T) serializer.Deserialize(reader);
             reader.Close();
           }
 
@@ -377,7 +403,6 @@ namespace BankoProject.ViewModels
       return objectOut;
     }
 
-
     #endregion
 
     #region loadsave
@@ -390,7 +415,8 @@ namespace BankoProject.ViewModels
       }
       _log.Info("LOADSESSION");
       BingoEvent ev = new BingoEvent();
-      ev = DeSerializeObject<BingoEvent>(SaveDirectory + "\\BingoBankoKontrol" + "\\LatestEvents" + "\\" + sessionName + ".xml");
+      ev = DeSerializeObject<BingoEvent>(SaveDirectory + "\\BingoBankoKontrol" + "\\LatestEvents" + "\\" + sessionName +
+                                         ".xml");
       CopyEvent(ev, Event);
       Event.WindowSettings.PrsSettings.IsOverLayOpen = false;
       //TODO: There should be no errors at this point, provided that no files has been corrupted or anything. if it has, the application will crash
@@ -434,7 +460,8 @@ namespace BankoProject.ViewModels
         CreateApplicationDirectories();
       }
       _log.Info("SAVESESSION");
-      SerializeObject<BingoEvent>(Event, SaveDirectory + "\\BingoBankoKontrol" + "\\LatestEvents" + "\\" + Event.EventTitle + ".xml");
+      SerializeObject<BingoEvent>(Event,
+        SaveDirectory + "\\BingoBankoKontrol" + "\\LatestEvents" + "\\" + Event.EventTitle + ".xml");
       return true;
     }
 

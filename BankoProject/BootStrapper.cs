@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.Composition;
-using System.ComponentModel.Composition.Hosting;
-using System.ComponentModel.Composition.Primitives;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
@@ -38,6 +35,7 @@ namespace BankoProject
     }
 
     #region MEF
+
     /* Managed Extensibility Framework
      * A lot of this is just copy paste code, from http://caliburnmicro.com/documentation/bootstrapper
      * This is used to make whatever we store in our SimpleInjector container available across the application.
@@ -64,7 +62,8 @@ namespace BankoProject
     {
       if (service == null)
       {
-        var typeName = Assembly.GetExecutingAssembly().DefinedTypes.Where(x => x.Name.Contains(key)).Select(x => x.AssemblyQualifiedName).Single();
+        var typeName = Assembly.GetExecutingAssembly().DefinedTypes.Where(x => x.Name.Contains(key))
+          .Select(x => x.AssemblyQualifiedName).Single();
 
         service = Type.GetType(typeName);
       }
@@ -75,7 +74,7 @@ namespace BankoProject
     {
       IServiceProvider provider = _container;
       Type collectionType = typeof(IEnumerable<>).MakeGenericType(service);
-      var services = (IEnumerable<object>)provider.GetService(collectionType);
+      var services = (IEnumerable<object>) provider.GetService(collectionType);
       return services ?? Enumerable.Empty<object>();
     }
 
@@ -84,6 +83,7 @@ namespace BankoProject
       var registration = _container.GetRegistration(instance.GetType(), true);
       registration.Registration.InitializeInstance(instance);
     }
+
     #endregion
   }
 }

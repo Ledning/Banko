@@ -15,10 +15,5 @@ namespace BankoProject.Tools
   /// </summary>
   public interface IPresentationScreenItem
   {
-
-
-
-
-
   }
 }

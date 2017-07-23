@@ -4,12 +4,12 @@
                     xmlns:tools="clr-namespace:BankoProject.Views"
                     xmlns:local="clr-namespace:BankoProject.Views.Styles">
   <Style x:Key="{x:Type Label}" TargetType="Label">
-    <Setter Property="FontSize" Value="37.333"></Setter>
-    <Setter Property="Foreground" Value="White"></Setter>
-    <Setter Property="FontFamily" Value="Segoe WP Black"></Setter>
-    <Setter Property="VerticalAlignment" Value="Center"></Setter>
-    <Setter Property="VerticalContentAlignment" Value="Center"></Setter>
-    <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
+    <Setter Property="FontSize" Value="37.333" />
+    <Setter Property="Foreground" Value="White" />
+    <Setter Property="FontFamily" Value="Segoe WP Black" />
+    <Setter Property="VerticalAlignment" Value="Center" />
+    <Setter Property="VerticalContentAlignment" Value="Center" />
+    <Setter Property="HorizontalContentAlignment" Value="Center" />
 
     <Setter Property="Template">
       <Setter.Value>
@@ -24,5 +24,5 @@
       </Setter.Value>
     </Setter>
 
-  </Style> 
+  </Style>
 </ResourceDictionary>

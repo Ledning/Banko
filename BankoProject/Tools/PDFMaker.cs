@@ -11,21 +11,20 @@ namespace BankoProject.Tools
 {
   public class PDFMaker
   {
-
     public PDFMaker()
     {
-
     }
 
 
     private string _outputDirectory = null;
+
     public PDFMaker(string outputDirectory)
     {
       _outputDirectory = outputDirectory;
     }
+
     public List<int[,]> MakePDF(List<int[,]> cards, string _saveLoc)
     {
-
       string imgName = @"bingo1.png";
       string imgSource = Path.Combine(Directory.GetCurrentDirectory(), "..\\..\\", @"Resources\", imgName);
       if (_outputDirectory != null)
@@ -42,6 +41,7 @@ namespace BankoProject.Tools
       XImage pdfSize = XImage.FromFile(imgSource);
 
       #region PixelStuff
+
       int startPlateY = 834;
       int startX = 356;
       int jumpX = 222;
@@ -49,6 +49,7 @@ namespace BankoProject.Tools
       int jumpYPlate = 796;
       int plateNumX = 45;
       int plateNumY = 3300;
+
       #endregion
 
 
@@ -67,7 +68,6 @@ namespace BankoProject.Tools
           page.TrimMargins.Left = -30;
 
 
-
           doc.Pages.Add(page);
           XGraphics xgr = XGraphics.FromPdfPage(doc.Pages[doc.PageCount - 1]);
 
@@ -82,17 +82,18 @@ namespace BankoProject.Tools
             rowChooser = plateChooser;
             for (int row = 0; row < 3; row++) //rækkenummer. Placerer y-akseværdi
             {
-
               for (int column = 0; column < 9; column++)
               {
                 if (cards[i][column, row] != 0)
                 {
                   if (cards[i][column, row] < 10)
                   {
-                    xgr.DrawString(" " + Convert.ToString(cards[i][column, row]), numberFont, XBrushes.Black, new XRect(columnChooser, rowChooser, 10, 0), XStringFormats.TopLeft);
+                    xgr.DrawString(" " + Convert.ToString(cards[i][column, row]), numberFont, XBrushes.Black,
+                      new XRect(columnChooser, rowChooser, 10, 0), XStringFormats.TopLeft);
                   }
                   else
-                    xgr.DrawString(Convert.ToString(cards[i][column, row]), numberFont, XBrushes.Black, new XRect(columnChooser, rowChooser, 10, 0), XStringFormats.TopLeft);
+                    xgr.DrawString(Convert.ToString(cards[i][column, row]), numberFont, XBrushes.Black,
+                      new XRect(columnChooser, rowChooser, 10, 0), XStringFormats.TopLeft);
                 }
 
                 columnChooser += jumpX; //Hopper med en kolonne per iteration          
@@ -104,7 +105,8 @@ namespace BankoProject.Tools
             plateChooser += jumpYPlate; // hopper en plade per iteration
           }
 
-          xgr.DrawString("Pladenummer: " + Convert.ToString(i), plateNumFont, XBrushes.Black, new XRect(plateNumX, plateNumY, 10, 0), XStringFormats.TopLeft);
+          xgr.DrawString("Pladenummer: " + Convert.ToString(i), plateNumFont, XBrushes.Black,
+            new XRect(plateNumX, plateNumY, 10, 0), XStringFormats.TopLeft);
         }
       }
 

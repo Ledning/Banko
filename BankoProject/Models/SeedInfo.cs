@@ -28,17 +28,15 @@ namespace BankoProject.Models
     {
       //TODO: MAKE up some clever way of making this not be called by anything but the serializer
     }
+
     public SeedInfo(string originalseed)
     {
       _originalSeed = originalseed;
-      NotifyOfPropertyChange(()=>OriginalSeed);
+      NotifyOfPropertyChange(() => OriginalSeed);
       Seed = OriginalSeed;
       _seedManipulated = false;
-      NotifyOfPropertyChange(()=> SeedManipulated);
+      NotifyOfPropertyChange(() => SeedManipulated);
       ConvertedOriginalSeed = ShortenAndParsePassphraseToInt32(originalseed);
-
-
-
     }
 
     private int _convertedOriginalSeed;
@@ -49,13 +47,17 @@ namespace BankoProject.Models
     [XmlIgnore]
     public string OriginalSeed
     {
-      get {return _originalSeed; }
+      get { return _originalSeed; }
     }
 
     public string Seed
     {
       get { return _seed; }
-      set { _seed = value; NotifyOfPropertyChange();}
+      set
+      {
+        _seed = value;
+        NotifyOfPropertyChange();
+      }
     }
 
     public bool SeedManipulated
@@ -71,9 +73,10 @@ namespace BankoProject.Models
     [XmlIgnore]
     public int ConvertedOriginalSeed
     {
-      get {return _convertedOriginalSeed; }
+      get { return _convertedOriginalSeed; }
       private set { _convertedOriginalSeed = value; }
     }
+
     private int ShortenAndParsePassphraseToInt32(string keyword)
     {
       // Converts user keyword into an int32 seed
@@ -102,6 +105,7 @@ namespace BankoProject.Models
       }
       return seed;
     }
+
     private string ConvertTextToUTF8Value(string keyword)
     {
       byte[] arrayBytes = Encoding.UTF8.GetBytes(keyword);

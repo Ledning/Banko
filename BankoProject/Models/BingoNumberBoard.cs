@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using BankoProject.Models;
 using Caliburn.Micro;
-using System.ComponentModel.Composition;
 using System.IO;
 using BankoProject.ViewModels;
 using System.Windows.Media;
@@ -21,15 +20,14 @@ namespace BankoProject.Models
 
     private BindableCollection<BingoNumber> _board;
     private int _boardSize = 90;
-    [XmlIgnore]
-    private readonly ILog _log = LogManager.GetLog(typeof(BingoNumberBoard));
+    [XmlIgnore] private readonly ILog _log = LogManager.GetLog(typeof(BingoNumberBoard));
     private int _selectedIndex = 0;
 
 
     private IWindowManager _winMan;
+
     public BingoNumberBoard()
     {
-
       //_winMan = IoC.Get<IWindowManager>();
     }
 
@@ -40,7 +38,7 @@ namespace BankoProject.Models
       _board = new BindableCollection<BingoNumber>();
       for (int i = 0; i < _boardSize; i++)
       {
-        Board.Add(new BingoNumber(i+1));
+        Board.Add(new BingoNumber(i + 1));
       }
       NotifyOfPropertyChange(() => Board);
       _log.Info("Initialization of board done.");
@@ -50,17 +48,12 @@ namespace BankoProject.Models
     [XmlArrayItem(Type = typeof(BingoNumber))]
     public BindableCollection<BingoNumber> Board
     {
-      get
-      {
-        return _board;
-      }
+      get { return _board; }
       set
       {
         _board = value;
-        NotifyOfPropertyChange(()=> Board);
+        NotifyOfPropertyChange(() => Board);
       }
     }
-
-
   }
 }

@@ -23,7 +23,8 @@ namespace BankoProject.Tools.Events
 
     //used if it is a session load message, we need to know the name of the seesion
     //Check if the file exists will be done in WelcomeViewModel
-    public CommunicationObject(ApplicationWideEnums.MessageTypes msgType, ApplicationWideEnums.SenderTypes dispatcher, string sessionName)
+    public CommunicationObject(ApplicationWideEnums.MessageTypes msgType, ApplicationWideEnums.SenderTypes dispatcher,
+      string sessionName)
     {
       Message = msgType;
       DispatcherName = dispatcher;

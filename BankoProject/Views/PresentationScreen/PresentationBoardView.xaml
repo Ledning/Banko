@@ -1,577 +1,857 @@
 ﻿<UserControl x:Class="BankoProject.Views.PresentationScreen.PresentationBoardView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:BankoProject.Views.PresentationScreen"
-             mc:Ignorable="d" 
-                          xmlns:metro="http://metro.mahapps.com/winfx/xaml/controls"
-              xmlns:tools="clr-namespace:BankoProject.Tools"
+             mc:Ignorable="d"
+             xmlns:metro="http://metro.mahapps.com/winfx/xaml/controls"
+             xmlns:tools="clr-namespace:BankoProject.Tools"
              xmlns:BoardElement="clr-namespace:BankoProject.Views.Styles"
-             
+
              d:DesignHeight="600" d:DesignWidth="600">
   <UserControl.Resources>
     <Style x:Key="BorderStyle" TargetType="Border">
       <Style.Triggers>
         <Trigger Property="tools:ControlExtensions.IsPicked" Value="False">
-          <Setter Property="Opacity" Value="0.2"></Setter>
+          <Setter Property="Opacity" Value="0.2" />
         </Trigger>
         <Trigger Property="tools:ControlExtensions.IsPicked" Value="True">
-          <Setter Property="Opacity" Value="1"></Setter>
+          <Setter Property="Opacity" Value="1" />
         </Trigger>
       </Style.Triggers>
       <Setter Property="RenderOptions.ClearTypeHint"
-                Value="Auto" />
+              Value="Auto" />
       <Setter Property="TextOptions.TextFormattingMode"
-                Value="Ideal" />
+              Value="Ideal" />
     </Style>
   </UserControl.Resources>
 
-    <Border Margin="-26,0,0,0" Width="620" Height="600" CornerRadius="40" >
+  <Border Margin="-26,0,0,0" Width="620" Height="600" CornerRadius="40">
     <Border.Background>
-      <SolidColorBrush Color="Beige" Opacity="0.0"/>
+      <SolidColorBrush Color="Beige" Opacity="0.0" />
     </Border.Background>
     <Grid VerticalAlignment="Center" HorizontalAlignment="Center" Width="600" Height="600" Margin="10,10,10,-10">
-    <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}"  tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[0].IsPicked}" Width="55.62" VerticalAlignment="Top" HorizontalAlignment="Left" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin">
-      <Border.Effect>
-        <DropShadowEffect/>
-      </Border.Effect>
-      <Label  Content="1" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False"/>
-    </Border>
-    <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}"  tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[1].IsPicked}" Width="55.62" VerticalAlignment="Top" HorizontalAlignment="Left" d:LayoutOverrides="TopMargin, BottomMargin" Margin="60.62,0,0,0">
-      <Border.Effect>
-        <DropShadowEffect/>
-      </Border.Effect>
-      <Label Content="2" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False"/>
-    </Border>
-    <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}" tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[2].IsPicked}" Width="55.62" VerticalAlignment="Top" HorizontalAlignment="Left" d:LayoutOverrides="TopMargin, BottomMargin" Margin="121.24,0,0,0">
-      <Border.Effect>
-        <DropShadowEffect/>
-      </Border.Effect>
-      <Label Content="3" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False"/>
-    </Border>
-    <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}" tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[3].IsPicked}" Width="55.62" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="181.86,0,0,0" d:LayoutOverrides="TopMargin, BottomMargin">
-      <Border.Effect>
-        <DropShadowEffect/>
-      </Border.Effect>
-      <Label Content="4" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False"/>
-    </Border>
-    <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}" tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[4].IsPicked}" Width="55.62" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="242.48,0,0,0" d:LayoutOverrides="TopMargin, BottomMargin">
-      <Border.Effect>
-        <DropShadowEffect/>
-      </Border.Effect>
-      <Label Content="5" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False"/>
-    </Border>
-    <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}" tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[5].IsPicked}" Width="55.62" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,0,241.28,0" d:LayoutOverrides="TopMargin, BottomMargin">
-      <Border.Effect>
-        <DropShadowEffect/>
-      </Border.Effect>
-        <Label  Content="6" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False"/>
-    </Border>
-    <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}" tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[6].IsPicked}" Width="55.62" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,0,180.66,0" d:LayoutOverrides="TopMargin, BottomMargin">
-      <Border.Effect>
-        <DropShadowEffect/>
-      </Border.Effect>
-      <Label Content="7" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False"/>
-    </Border>
-    <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}" tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[7].IsPicked}" Width="55.62" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,0,120.04,0" d:LayoutOverrides="TopMargin, BottomMargin">
-      <Border.Effect>
-        <DropShadowEffect/>
-      </Border.Effect>
-      <Label Content="8" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False"/>
-    </Border>
-    <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}" tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[8].IsPicked}" Width="55.62" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,0,59.42,0" d:LayoutOverrides="TopMargin, BottomMargin">
-      <Border.Effect>
-        <DropShadowEffect/>
-      </Border.Effect>
-      <Label Content="9" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False"/>
-    </Border>
-    <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}" tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[9].IsPicked}" Width="55.62" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,0,-1.2,0" d:LayoutOverrides="TopMargin, BottomMargin">
-      <Border.Effect>
-        <DropShadowEffect/>
-      </Border.Effect>
-      <Label Content="10" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False"/>
-    </Border>
-    <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}" tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[10].IsPicked}" Width="55.62" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="-1.2,64.656,0,0">
-      <Border.Effect>
-        <DropShadowEffect/>
-      </Border.Effect>
-      <Label Content="11" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False"/>
-    </Border>
-    <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}" tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[11].IsPicked}" Width="55.62" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="59.42,64.656,0,0">
-      <Border.Effect>
-        <DropShadowEffect/>
-      </Border.Effect>
-      <Label Content="12" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False"/>
-    </Border>
-    <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}" tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[12].IsPicked}" Width="55.62" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="120.04,64.656,0,0">
-      <Border.Effect>
-        <DropShadowEffect/>
-      </Border.Effect>
-      <Label Content="13" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False"/>
-    </Border>
-    <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}" tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[13].IsPicked}" Width="55.62" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="180.66,64.656,0,0">
-      <Border.Effect>
-        <DropShadowEffect/>
-      </Border.Effect>
-      <Label Content="14" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False"/>
-    </Border>
-    <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}" tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[14].IsPicked}" Width="55.62" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="241.28,64.656,0,0">
-      <Border.Effect>
-        <DropShadowEffect/>
-      </Border.Effect>
-      <Label Content="15" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False"/>
-    </Border>
-    <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}" tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[15].IsPicked}" Width="55.62" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,64.656,242.48,0">
-      <Border.Effect>
-        <DropShadowEffect/>
-      </Border.Effect>
-      <Label Content="16" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False"/>
-    </Border>
-    <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}" tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[16].IsPicked}" Width="55.62" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,64.656,181.86,0">
-      <Border.Effect>
-        <DropShadowEffect/>
-      </Border.Effect>
-      <Label Content="17" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False"/>
-    </Border>
-    <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}" tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[17].IsPicked}" Width="55.62" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,64.656,121.24,0">
-      <Border.Effect>
-        <DropShadowEffect/>
-      </Border.Effect>
-      <Label Content="18" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False"/>
-    </Border>
-    <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}" tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[18].IsPicked}" Width="55.62" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,64.656,60.62,0">
-      <Border.Effect>
-        <DropShadowEffect/>
-      </Border.Effect>
-      <Label Content="19" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False"/>
-    </Border>
-    <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}" tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[19].IsPicked}" Width="55.62" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,64.656,0,0">
-      <Border.Effect>
-        <DropShadowEffect/>
-      </Border.Effect>
-      <Label Content="20" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False"/>
-    </Border>
-    <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}" tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[20].IsPicked}" Width="55.62" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="-1.2,129.312,0,0">
-      <Border.Effect>
-        <DropShadowEffect/>
-      </Border.Effect>
-      <Label Content="21" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False"/>
-    </Border>
-    <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}" tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[21].IsPicked}" Width="55.62" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="59.42,129.312,0,0">
-      <Border.Effect>
-        <DropShadowEffect/>
-      </Border.Effect>
-      <Label Content="22" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False"/>
-    </Border>
-    <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}" tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[22].IsPicked}" Width="55.62" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="120.04,129.312,0,0">
-      <Border.Effect>
-        <DropShadowEffect/>
-      </Border.Effect>
-      <Label Content="23" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False"/>
-    </Border>
-    <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}" tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[23].IsPicked}" Width="55.62" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="180.66,129.312,0,0">
-      <Border.Effect>
-        <DropShadowEffect/>
-      </Border.Effect>
-      <Label Content="24" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False"/>
-    </Border>
-    <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}" tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[24].IsPicked}" Width="55.62" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="241.28,129.312,0,0">
-      <Border.Effect>
-        <DropShadowEffect/>
-      </Border.Effect>
-      <Label Content="25" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False"/>
-    </Border>
-    <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}" tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[25].IsPicked}" Width="55.62" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,129.312,242.48,0">
-      <Border.Effect>
-        <DropShadowEffect/>
-      </Border.Effect>
-      <Label Content="26" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False"/>
-    </Border>
-    <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}" tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[26].IsPicked}" Width="55.62" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,129.312,181.86,0">
-      <Border.Effect>
-        <DropShadowEffect/>
-      </Border.Effect>
-      <Label Content="27" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False"/>
-    </Border>
-    <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}" tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[27].IsPicked}" Width="55.62" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,129.312,121.24,0">
-      <Border.Effect>
-        <DropShadowEffect/>
-      </Border.Effect>
-      <Label Content="28"  FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False"/>
-    </Border>
-    <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}" tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[28].IsPicked}" Width="55.62" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,129.312,60.62,0">
-      <Border.Effect>
-        <DropShadowEffect/>
-      </Border.Effect>
-      <Label Content="29" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False"/>
-    </Border>
-    <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}" tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[29].IsPicked}" Width="55.62" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,129.312,0,0">
-      <Border.Effect>
-        <DropShadowEffect/>
-      </Border.Effect>
-      <Label Content="30" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False"/>
-    </Border>
-    <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}" tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[30].IsPicked}" Width="55.62" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="-1.2,193.968,0,0">
-      <Border.Effect>
-        <DropShadowEffect/>
-      </Border.Effect>
-      <Label Content="31" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False"/>
-    </Border>
-    <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}" tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[31].IsPicked}" Width="55.62" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="59.42,193.968,0,0">
-      <Border.Effect>
-        <DropShadowEffect/>
-      </Border.Effect>
-      <Label Content="32" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False"/>
-    </Border>
-    <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}" tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[32].IsPicked}" Width="55.62" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="120.04,193.968,0,0">
-      <Border.Effect>
-        <DropShadowEffect/>
-      </Border.Effect>
-      <Label Content="33" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False"/>
-    </Border>
-    <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}" tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[33].IsPicked}" Width="55.62" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="180.66,193.968,0,0">
-      <Border.Effect>
-        <DropShadowEffect/>
-      </Border.Effect>
-      <Label Content="34" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False"/>
-    </Border>
-    <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}" tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[34].IsPicked}" Width="55.62" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="241.28,193.968,0,0">
-      <Border.Effect>
-        <DropShadowEffect/>
-      </Border.Effect>
-      <Label Content="35" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False"/>
-    </Border>
-    <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}" tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[35].IsPicked}" Width="55.62" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,193.968,242.48,0">
-      <Border.Effect>
-        <DropShadowEffect/>
-      </Border.Effect>
-      <Label Content="36" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False"/>
-    </Border>
-    <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}" tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[36].IsPicked}" Width="55.62" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,193.968,181.86,0">
-      <Border.Effect>
-        <DropShadowEffect/>
-      </Border.Effect>
-      <Label Content="37" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False"/>
-    </Border>
-    <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}" tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[37].IsPicked}" Width="55.62" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,193.968,121.24,0">
-      <Border.Effect>
-        <DropShadowEffect/>
-      </Border.Effect>
-      <Label Content="38" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False"/>
-    </Border>
-    <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}" tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[38].IsPicked}" Width="55.62" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,193.968,60.62,0">
-      <Border.Effect>
-        <DropShadowEffect/>
-      </Border.Effect>
-      <Label Content="39" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False"/>
-    </Border>
-    <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}" tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[39].IsPicked}" Width="55.62" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,193.968,0,0">
-      <Border.Effect>
-        <DropShadowEffect/>
-      </Border.Effect>
-      <Label Content="40" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False"/>
-    </Border>
-    <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}" tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[40].IsPicked}" Width="55.62" HorizontalAlignment="Left" Margin="0,258.624,0,281.718" d:LayoutOverrides="Height">
-      <Border.Effect>
-        <DropShadowEffect/>
-      </Border.Effect>
-      <Label Content="41" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False"/>
-    </Border>
-    <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}" tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[41].IsPicked}" Width="55.62" HorizontalAlignment="Left" Margin="60.62,258.624,0,281.718" d:LayoutOverrides="Height">
-      <Border.Effect>
-        <DropShadowEffect/>
-      </Border.Effect>
-      <Label Content="42" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False"/>
-    </Border>
-    <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}" tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[42].IsPicked}" Width="55.62" HorizontalAlignment="Left" Margin="121.24,258.624,0,281.718" d:LayoutOverrides="Height">
-      <Border.Effect>
-        <DropShadowEffect/>
-      </Border.Effect>
-      <Label Content="43" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False"/>
-    </Border>
-    <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}" tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[43].IsPicked}" Width="55.62" HorizontalAlignment="Left" Margin="181.86,258.624,0,281.718" d:LayoutOverrides="Height">
-      <Border.Effect>
-        <DropShadowEffect/>
-      </Border.Effect>
-      <Label Content="44" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False"/>
-    </Border>
-    <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}" tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[44].IsPicked}" Width="55.62" HorizontalAlignment="Left" Margin="242.48,258.624,0,281.718" d:LayoutOverrides="Height">
-      <Border.Effect>
-        <DropShadowEffect/>
-      </Border.Effect>
-      <Label Content="45" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False"/>
-    </Border>
-    <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}" tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[45].IsPicked}" Width="55.62" HorizontalAlignment="Right" Margin="0,258.624,241.28,281.718" d:LayoutOverrides="Height">
-      <Border.Effect>
-        <DropShadowEffect/>
-      </Border.Effect>
-      <Label Content="46" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False"/>
-    </Border>
-    <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}" tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[46].IsPicked}" Width="55.62" HorizontalAlignment="Right" Margin="0,258.624,180.66,281.718" d:LayoutOverrides="Height">
-      <Border.Effect>
-        <DropShadowEffect/>
-      </Border.Effect>
-      <Label Content="47" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False"/>
-    </Border>
-    <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}" tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[47].IsPicked}" Width="55.62" HorizontalAlignment="Right" Margin="0,258.624,120.04,281.718" d:LayoutOverrides="Height">
-      <Border.Effect>
-        <DropShadowEffect/>
-      </Border.Effect>
-      <Label Content="48" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False"/>
-    </Border>
-    <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}" tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[48].IsPicked}" Width="55.62" HorizontalAlignment="Right" Margin="0,258.624,59.42,281.718" d:LayoutOverrides="Height">
-      <Border.Effect>
-        <DropShadowEffect/>
-      </Border.Effect>
-      <Label Content="49" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False"/>
-    </Border>
-    <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}" tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[49].IsPicked}" Width="55.62" HorizontalAlignment="Right" Margin="0,258.624,-1.2,281.718" d:LayoutOverrides="Height">
-      <Border.Effect>
-        <DropShadowEffect/>
-      </Border.Effect>
-      <Label Content="50" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False"/>
-    </Border>
-    <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}" tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[50].IsPicked}" Width="55.62" HorizontalAlignment="Left" Margin="0,0,0,217.06" VerticalAlignment="Bottom">
-      <Border.Effect>
-        <DropShadowEffect/>
-      </Border.Effect>
-      <Label Content="51" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False"/>
-    </Border>
-    <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}" tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[51].IsPicked}" Width="55.62" HorizontalAlignment="Left" Margin="60.62,0,0,217.06" VerticalAlignment="Bottom">
-      <Border.Effect>
-        <DropShadowEffect/>
-      </Border.Effect>
-      <Label Content="52" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False"/>
-    </Border>
-    <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}" tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[52].IsPicked}" Width="55.62" HorizontalAlignment="Left" Margin="121.24,0,0,217.06" VerticalAlignment="Bottom">
-      <Border.Effect>
-        <DropShadowEffect/>
-      </Border.Effect>
-      <Label Content="53" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False"/>
-    </Border>
-    <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}" tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[53].IsPicked}" Width="55.62" HorizontalAlignment="Left" Margin="181.86,0,0,217.06" VerticalAlignment="Bottom">
-      <Border.Effect>
-        <DropShadowEffect/>
-      </Border.Effect>
-      <Label Content="54" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False"/>
-    </Border>
-    <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}" tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[54].IsPicked}" Width="55.62" HorizontalAlignment="Left" Margin="242.48,0,0,217.06" VerticalAlignment="Bottom">
-      <Border.Effect>
-        <DropShadowEffect/>
-      </Border.Effect>
-      <Label Content="55" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False"/>
-    </Border>
-    <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}" tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[55].IsPicked}" Width="55.62" HorizontalAlignment="Right" Margin="0,0,241.28,217.06" VerticalAlignment="Bottom">
-      <Border.Effect>
-        <DropShadowEffect/>
-      </Border.Effect>
-      <Label Content="56" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False"/>
-    </Border>
-    <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}" tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[56].IsPicked}" Width="55.62" HorizontalAlignment="Right" Margin="0,0,180.66,217.06" VerticalAlignment="Bottom">
-      <Border.Effect>
-        <DropShadowEffect/>
-      </Border.Effect>
-      <Label Content="57" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False"/>
-    </Border>
-    <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}" tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[57].IsPicked}" Width="55.62" HorizontalAlignment="Right" Margin="0,0,120.04,217.06" VerticalAlignment="Bottom">
-      <Border.Effect>
-        <DropShadowEffect/>
-      </Border.Effect>
-      <Label Content="58" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False"/>
-    </Border>
-    <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}" tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[58].IsPicked}" Width="55.62" HorizontalAlignment="Right" Margin="0,0,59.42,217.06" VerticalAlignment="Bottom">
-      <Border.Effect>
-        <DropShadowEffect/>
-      </Border.Effect>
-      <Label Content="59" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False"/>
-    </Border>
-    <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}" tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[59].IsPicked}" Width="55.62" HorizontalAlignment="Right" Margin="0,0,-1.2,217.06" VerticalAlignment="Bottom">
-      <Border.Effect>
-        <DropShadowEffect/>
-      </Border.Effect>
-      <Label Content="60" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False"/>
-    </Border>
-    <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}" tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[60].IsPicked}" Width="55.62" HorizontalAlignment="Left" Margin="-1.2,0,0,152.403" VerticalAlignment="Bottom">
-      <Border.Effect>
-        <DropShadowEffect/>
-      </Border.Effect>
-      <Label Content="61" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False"/>
-    </Border>
-    <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}" tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[61].IsPicked}" Width="55.62" HorizontalAlignment="Left" Margin="59.42,0,0,152.403" VerticalAlignment="Bottom">
-      <Border.Effect>
-        <DropShadowEffect/>
-      </Border.Effect>
-      <Label Content="62" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False"/>
-    </Border>
-    <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}" tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[62].IsPicked}" Width="55.62" HorizontalAlignment="Left" Margin="120.04,0,0,152.403" VerticalAlignment="Bottom">
-      <Border.Effect>
-        <DropShadowEffect/>
-      </Border.Effect>
-      <Label Content="63" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False"/>
-    </Border>
-    <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}" tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[63].IsPicked}" Width="55.62" HorizontalAlignment="Left" Margin="180.66,0,0,152.403" VerticalAlignment="Bottom">
-      <Border.Effect>
-        <DropShadowEffect/>
-      </Border.Effect>
-      <Label Content="64" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False"/>
-    </Border>
-    <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}" tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[64].IsPicked}" Width="55.62" HorizontalAlignment="Left" Margin="241.28,0,0,152.403" VerticalAlignment="Bottom">
-      <Border.Effect>
-        <DropShadowEffect/>
-      </Border.Effect>
-      <Label Content="65" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False"/>
-    </Border>
-    <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}" tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[65].IsPicked}" Width="55.62" HorizontalAlignment="Right" Margin="0,0,242.48,152.403" VerticalAlignment="Bottom">
-      <Border.Effect>
-        <DropShadowEffect/>
-      </Border.Effect>
-      <Label Content="66" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False"/>
-    </Border>
-    <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}" tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[66].IsPicked}" Width="55.62" HorizontalAlignment="Right" Margin="0,0,181.86,152.403" VerticalAlignment="Bottom">
-      <Border.Effect>
-        <DropShadowEffect/>
-      </Border.Effect>
-      <Label Content="67" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False"/>
-    </Border>
-    <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}" tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[67].IsPicked}" Width="55.62" HorizontalAlignment="Right" Margin="0,0,121.24,152.403" VerticalAlignment="Bottom">
-      <Border.Effect>
-        <DropShadowEffect/>
-      </Border.Effect>
-      <Label Content="68" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False"/>
-    </Border>
-    <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}" tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[68].IsPicked}" Width="55.62" HorizontalAlignment="Right" Margin="0,0,60.62,152.403" VerticalAlignment="Bottom">
-      <Border.Effect>
-        <DropShadowEffect/>
-      </Border.Effect>
-      <Label Content="69" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False"/>
-    </Border>
-    <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}" tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[69].IsPicked}" Width="55.62" HorizontalAlignment="Right" Margin="0,0,0,152.403" VerticalAlignment="Bottom">
-      <Border.Effect>
-        <DropShadowEffect/>
-      </Border.Effect>
-      <Label Content="70" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False"/>
-    </Border>
-    <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}" tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[70].IsPicked}" Width="55.62" HorizontalAlignment="Left" Margin="0,0,0,87.746" VerticalAlignment="Bottom">
-      <Border.Effect>
-        <DropShadowEffect/>
-      </Border.Effect>
-      <Label Content="71" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False"/>
-    </Border>
-    <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}" tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[71].IsPicked}" Width="55.62" HorizontalAlignment="Left" Margin="60.62,0,0,87.746" VerticalAlignment="Bottom">
-      <Border.Effect>
-        <DropShadowEffect/>
-      </Border.Effect>
-      <Label Content="72" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False"/>
-    </Border>
-    <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}" tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[72].IsPicked}" Width="55.62" HorizontalAlignment="Left" Margin="121.24,0,0,87.746" VerticalAlignment="Bottom">
-      <Border.Effect>
-        <DropShadowEffect/>
-      </Border.Effect>
-      <Label Content="73" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False"/>
-    </Border>
-    <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}" tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[73].IsPicked}" Width="55.62" HorizontalAlignment="Left" Margin="181.86,0,0,87.746" VerticalAlignment="Bottom">
-      <Border.Effect>
-        <DropShadowEffect/>
-      </Border.Effect>
-      <Label Content="74" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False"/>
-    </Border>
-    <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}" tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[74].IsPicked}" Width="55.62" HorizontalAlignment="Left" Margin="242.48,0,0,87.746" VerticalAlignment="Bottom">
-      <Border.Effect>
-        <DropShadowEffect/>
-      </Border.Effect>
-      <Label Content="75" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False"/>
-    </Border>
-    <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}" tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[75].IsPicked}" Width="55.62" HorizontalAlignment="Right" Margin="0,0,241.28,87.746" VerticalAlignment="Bottom">
-      <Border.Effect>
-        <DropShadowEffect/>
-      </Border.Effect>
-      <Label Content="76" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False"/>
-    </Border>
-    <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}" tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[76].IsPicked}" Width="55.62" HorizontalAlignment="Right" Margin="0,0,180.66,87.746" VerticalAlignment="Bottom">
-      <Border.Effect>
-        <DropShadowEffect/>
-      </Border.Effect>
-      <Label Content="77" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False"/>
-    </Border>
-    <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}" tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[77].IsPicked}" Width="55.62" HorizontalAlignment="Right" Margin="0,0,120.04,87.746" VerticalAlignment="Bottom">
-      <Border.Effect>
-        <DropShadowEffect/>
-      </Border.Effect>
-      <Label Content="78" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False"/>
-    </Border>
-    <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}" tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[78].IsPicked}" Width="55.62" HorizontalAlignment="Right" Margin="0,0,59.42,87.746" VerticalAlignment="Bottom">
-      <Border.Effect>
-        <DropShadowEffect/>
-      </Border.Effect>
-      <Label Content="79" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False"/>
-    </Border>
-    <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}" tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[79].IsPicked}" Width="55.62" HorizontalAlignment="Right" Margin="0,0,-1.2,87.746" VerticalAlignment="Bottom">
-      <Border.Effect>
-        <DropShadowEffect/>
-      </Border.Effect>
-      <Label Content="80" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False"/>
-    </Border>
-    <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}" tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[80].IsPicked}" Width="55.62" HorizontalAlignment="Left" Margin="0,0,0,23.089" VerticalAlignment="Bottom">
-      <Border.Effect>
-        <DropShadowEffect/>
-      </Border.Effect>
-      <Label Content="81" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False"/>
-    </Border>
-    <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}" tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[81].IsPicked}" Width="55.62" HorizontalAlignment="Left" Margin="60.62,0,0,23.089" VerticalAlignment="Bottom">
-      <Border.Effect>
-        <DropShadowEffect/>
-      </Border.Effect>
-      <Label Content="82" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False"/>
-    </Border>
-    <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}" tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[82].IsPicked}" Width="55.62" HorizontalAlignment="Left" Margin="121.24,0,0,23.089" VerticalAlignment="Bottom">
-      <Border.Effect>
-        <DropShadowEffect/>
-      </Border.Effect>
-      <Label Content="83" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False"/>
-    </Border>
-    <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}" tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[83].IsPicked}" Width="55.62" HorizontalAlignment="Left" Margin="181.86,0,0,23.089" VerticalAlignment="Bottom">
-      <Border.Effect>
-        <DropShadowEffect/>
-      </Border.Effect>
-      <Label Content="84" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False"/>
-    </Border>
-    <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}" tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[84].IsPicked}" Width="55.62" HorizontalAlignment="Left" Margin="242.48,0,0,23.089" VerticalAlignment="Bottom">
-      <Border.Effect>
-        <DropShadowEffect/>
-      </Border.Effect>
-      <Label Content="85" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False"/>
-    </Border>
-    <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}" tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[85].IsPicked}" Width="55.62" HorizontalAlignment="Right" Margin="0,0,241.28,23.089" VerticalAlignment="Bottom">
-      <Border.Effect>
-        <DropShadowEffect/>
-      </Border.Effect>
-      <Label Content="86" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False"/>
-    </Border>
-    <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}" tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[86].IsPicked}" Width="55.62" HorizontalAlignment="Right" Margin="0,0,180.66,23.089" VerticalAlignment="Bottom">
-      <Border.Effect>
-        <DropShadowEffect/>
-      </Border.Effect>
-      <Label Content="87" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False"/>
-    </Border>
-    <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}" tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[87].IsPicked}" Width="55.62" HorizontalAlignment="Right" Margin="0,0,120.04,23.089" VerticalAlignment="Bottom">
-      <Border.Effect>
-        <DropShadowEffect/>
-      </Border.Effect>
-      <Label Content="88" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False"/>
-    </Border>
-    <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}" tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[88].IsPicked}" Width="55.62" HorizontalAlignment="Right" Margin="0,0,59.42,23.089" VerticalAlignment="Bottom">
-      <Border.Effect>
-        <DropShadowEffect/>
-      </Border.Effect>
-      <Label Content="89" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False"/>
-    </Border>
-    <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}" tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[89].IsPicked}" Width="55.62" HorizontalAlignment="Right" Margin="0,0,-1.2,23.089" VerticalAlignment="Bottom">
-      <Border.Effect>
-        <DropShadowEffect/>
-      </Border.Effect>
-      <Label Content="90" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False"/>
-    </Border>
+      <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}"
+              tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[0].IsPicked}" Width="55.62"
+              VerticalAlignment="Top" HorizontalAlignment="Left"
+              d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin">
+        <Border.Effect>
+          <DropShadowEffect />
+        </Border.Effect>
+        <Label Content="1" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center"
+               VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False" />
+      </Border>
+      <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}"
+              tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[1].IsPicked}" Width="55.62"
+              VerticalAlignment="Top" HorizontalAlignment="Left" d:LayoutOverrides="TopMargin, BottomMargin"
+              Margin="60.62,0,0,0">
+        <Border.Effect>
+          <DropShadowEffect />
+        </Border.Effect>
+        <Label Content="2" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center"
+               VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False" />
+      </Border>
+      <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}"
+              tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[2].IsPicked}" Width="55.62"
+              VerticalAlignment="Top" HorizontalAlignment="Left" d:LayoutOverrides="TopMargin, BottomMargin"
+              Margin="121.24,0,0,0">
+        <Border.Effect>
+          <DropShadowEffect />
+        </Border.Effect>
+        <Label Content="3" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center"
+               VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False" />
+      </Border>
+      <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}"
+              tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[3].IsPicked}" Width="55.62"
+              VerticalAlignment="Top" HorizontalAlignment="Left" Margin="181.86,0,0,0"
+              d:LayoutOverrides="TopMargin, BottomMargin">
+        <Border.Effect>
+          <DropShadowEffect />
+        </Border.Effect>
+        <Label Content="4" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center"
+               VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False" />
+      </Border>
+      <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}"
+              tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[4].IsPicked}" Width="55.62"
+              VerticalAlignment="Top" HorizontalAlignment="Left" Margin="242.48,0,0,0"
+              d:LayoutOverrides="TopMargin, BottomMargin">
+        <Border.Effect>
+          <DropShadowEffect />
+        </Border.Effect>
+        <Label Content="5" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center"
+               VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False" />
+      </Border>
+      <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}"
+              tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[5].IsPicked}" Width="55.62"
+              VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,0,241.28,0"
+              d:LayoutOverrides="TopMargin, BottomMargin">
+        <Border.Effect>
+          <DropShadowEffect />
+        </Border.Effect>
+        <Label Content="6" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center"
+               VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False" />
+      </Border>
+      <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}"
+              tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[6].IsPicked}" Width="55.62"
+              VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,0,180.66,0"
+              d:LayoutOverrides="TopMargin, BottomMargin">
+        <Border.Effect>
+          <DropShadowEffect />
+        </Border.Effect>
+        <Label Content="7" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center"
+               VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False" />
+      </Border>
+      <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}"
+              tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[7].IsPicked}" Width="55.62"
+              VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,0,120.04,0"
+              d:LayoutOverrides="TopMargin, BottomMargin">
+        <Border.Effect>
+          <DropShadowEffect />
+        </Border.Effect>
+        <Label Content="8" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center"
+               VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False" />
+      </Border>
+      <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}"
+              tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[8].IsPicked}" Width="55.62"
+              VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,0,59.42,0"
+              d:LayoutOverrides="TopMargin, BottomMargin">
+        <Border.Effect>
+          <DropShadowEffect />
+        </Border.Effect>
+        <Label Content="9" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center"
+               VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False" />
+      </Border>
+      <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}"
+              tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[9].IsPicked}" Width="55.62"
+              VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,0,-1.2,0"
+              d:LayoutOverrides="TopMargin, BottomMargin">
+        <Border.Effect>
+          <DropShadowEffect />
+        </Border.Effect>
+        <Label Content="10" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center"
+               VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False" />
+      </Border>
+      <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}"
+              tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[10].IsPicked}" Width="55.62"
+              VerticalAlignment="Top" HorizontalAlignment="Left" Margin="-1.2,64.656,0,0">
+        <Border.Effect>
+          <DropShadowEffect />
+        </Border.Effect>
+        <Label Content="11" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center"
+               VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False" />
+      </Border>
+      <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}"
+              tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[11].IsPicked}" Width="55.62"
+              VerticalAlignment="Top" HorizontalAlignment="Left" Margin="59.42,64.656,0,0">
+        <Border.Effect>
+          <DropShadowEffect />
+        </Border.Effect>
+        <Label Content="12" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center"
+               VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False" />
+      </Border>
+      <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}"
+              tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[12].IsPicked}" Width="55.62"
+              VerticalAlignment="Top" HorizontalAlignment="Left" Margin="120.04,64.656,0,0">
+        <Border.Effect>
+          <DropShadowEffect />
+        </Border.Effect>
+        <Label Content="13" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center"
+               VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False" />
+      </Border>
+      <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}"
+              tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[13].IsPicked}" Width="55.62"
+              VerticalAlignment="Top" HorizontalAlignment="Left" Margin="180.66,64.656,0,0">
+        <Border.Effect>
+          <DropShadowEffect />
+        </Border.Effect>
+        <Label Content="14" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center"
+               VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False" />
+      </Border>
+      <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}"
+              tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[14].IsPicked}" Width="55.62"
+              VerticalAlignment="Top" HorizontalAlignment="Left" Margin="241.28,64.656,0,0">
+        <Border.Effect>
+          <DropShadowEffect />
+        </Border.Effect>
+        <Label Content="15" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center"
+               VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False" />
+      </Border>
+      <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}"
+              tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[15].IsPicked}" Width="55.62"
+              VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,64.656,242.48,0">
+        <Border.Effect>
+          <DropShadowEffect />
+        </Border.Effect>
+        <Label Content="16" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center"
+               VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False" />
+      </Border>
+      <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}"
+              tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[16].IsPicked}" Width="55.62"
+              VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,64.656,181.86,0">
+        <Border.Effect>
+          <DropShadowEffect />
+        </Border.Effect>
+        <Label Content="17" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center"
+               VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False" />
+      </Border>
+      <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}"
+              tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[17].IsPicked}" Width="55.62"
+              VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,64.656,121.24,0">
+        <Border.Effect>
+          <DropShadowEffect />
+        </Border.Effect>
+        <Label Content="18" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center"
+               VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False" />
+      </Border>
+      <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}"
+              tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[18].IsPicked}" Width="55.62"
+              VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,64.656,60.62,0">
+        <Border.Effect>
+          <DropShadowEffect />
+        </Border.Effect>
+        <Label Content="19" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center"
+               VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False" />
+      </Border>
+      <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}"
+              tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[19].IsPicked}" Width="55.62"
+              VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,64.656,0,0">
+        <Border.Effect>
+          <DropShadowEffect />
+        </Border.Effect>
+        <Label Content="20" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center"
+               VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False" />
+      </Border>
+      <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}"
+              tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[20].IsPicked}" Width="55.62"
+              VerticalAlignment="Top" HorizontalAlignment="Left" Margin="-1.2,129.312,0,0">
+        <Border.Effect>
+          <DropShadowEffect />
+        </Border.Effect>
+        <Label Content="21" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center"
+               VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False" />
+      </Border>
+      <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}"
+              tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[21].IsPicked}" Width="55.62"
+              VerticalAlignment="Top" HorizontalAlignment="Left" Margin="59.42,129.312,0,0">
+        <Border.Effect>
+          <DropShadowEffect />
+        </Border.Effect>
+        <Label Content="22" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center"
+               VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False" />
+      </Border>
+      <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}"
+              tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[22].IsPicked}" Width="55.62"
+              VerticalAlignment="Top" HorizontalAlignment="Left" Margin="120.04,129.312,0,0">
+        <Border.Effect>
+          <DropShadowEffect />
+        </Border.Effect>
+        <Label Content="23" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center"
+               VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False" />
+      </Border>
+      <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}"
+              tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[23].IsPicked}" Width="55.62"
+              VerticalAlignment="Top" HorizontalAlignment="Left" Margin="180.66,129.312,0,0">
+        <Border.Effect>
+          <DropShadowEffect />
+        </Border.Effect>
+        <Label Content="24" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center"
+               VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False" />
+      </Border>
+      <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}"
+              tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[24].IsPicked}" Width="55.62"
+              VerticalAlignment="Top" HorizontalAlignment="Left" Margin="241.28,129.312,0,0">
+        <Border.Effect>
+          <DropShadowEffect />
+        </Border.Effect>
+        <Label Content="25" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center"
+               VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False" />
+      </Border>
+      <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}"
+              tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[25].IsPicked}" Width="55.62"
+              VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,129.312,242.48,0">
+        <Border.Effect>
+          <DropShadowEffect />
+        </Border.Effect>
+        <Label Content="26" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center"
+               VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False" />
+      </Border>
+      <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}"
+              tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[26].IsPicked}" Width="55.62"
+              VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,129.312,181.86,0">
+        <Border.Effect>
+          <DropShadowEffect />
+        </Border.Effect>
+        <Label Content="27" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center"
+               VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False" />
+      </Border>
+      <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}"
+              tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[27].IsPicked}" Width="55.62"
+              VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,129.312,121.24,0">
+        <Border.Effect>
+          <DropShadowEffect />
+        </Border.Effect>
+        <Label Content="28" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center"
+               VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False" />
+      </Border>
+      <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}"
+              tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[28].IsPicked}" Width="55.62"
+              VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,129.312,60.62,0">
+        <Border.Effect>
+          <DropShadowEffect />
+        </Border.Effect>
+        <Label Content="29" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center"
+               VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False" />
+      </Border>
+      <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}"
+              tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[29].IsPicked}" Width="55.62"
+              VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,129.312,0,0">
+        <Border.Effect>
+          <DropShadowEffect />
+        </Border.Effect>
+        <Label Content="30" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center"
+               VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False" />
+      </Border>
+      <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}"
+              tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[30].IsPicked}" Width="55.62"
+              VerticalAlignment="Top" HorizontalAlignment="Left" Margin="-1.2,193.968,0,0">
+        <Border.Effect>
+          <DropShadowEffect />
+        </Border.Effect>
+        <Label Content="31" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center"
+               VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False" />
+      </Border>
+      <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}"
+              tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[31].IsPicked}" Width="55.62"
+              VerticalAlignment="Top" HorizontalAlignment="Left" Margin="59.42,193.968,0,0">
+        <Border.Effect>
+          <DropShadowEffect />
+        </Border.Effect>
+        <Label Content="32" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center"
+               VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False" />
+      </Border>
+      <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}"
+              tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[32].IsPicked}" Width="55.62"
+              VerticalAlignment="Top" HorizontalAlignment="Left" Margin="120.04,193.968,0,0">
+        <Border.Effect>
+          <DropShadowEffect />
+        </Border.Effect>
+        <Label Content="33" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center"
+               VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False" />
+      </Border>
+      <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}"
+              tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[33].IsPicked}" Width="55.62"
+              VerticalAlignment="Top" HorizontalAlignment="Left" Margin="180.66,193.968,0,0">
+        <Border.Effect>
+          <DropShadowEffect />
+        </Border.Effect>
+        <Label Content="34" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center"
+               VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False" />
+      </Border>
+      <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}"
+              tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[34].IsPicked}" Width="55.62"
+              VerticalAlignment="Top" HorizontalAlignment="Left" Margin="241.28,193.968,0,0">
+        <Border.Effect>
+          <DropShadowEffect />
+        </Border.Effect>
+        <Label Content="35" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center"
+               VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False" />
+      </Border>
+      <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}"
+              tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[35].IsPicked}" Width="55.62"
+              VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,193.968,242.48,0">
+        <Border.Effect>
+          <DropShadowEffect />
+        </Border.Effect>
+        <Label Content="36" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center"
+               VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False" />
+      </Border>
+      <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}"
+              tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[36].IsPicked}" Width="55.62"
+              VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,193.968,181.86,0">
+        <Border.Effect>
+          <DropShadowEffect />
+        </Border.Effect>
+        <Label Content="37" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center"
+               VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False" />
+      </Border>
+      <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}"
+              tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[37].IsPicked}" Width="55.62"
+              VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,193.968,121.24,0">
+        <Border.Effect>
+          <DropShadowEffect />
+        </Border.Effect>
+        <Label Content="38" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center"
+               VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False" />
+      </Border>
+      <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}"
+              tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[38].IsPicked}" Width="55.62"
+              VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,193.968,60.62,0">
+        <Border.Effect>
+          <DropShadowEffect />
+        </Border.Effect>
+        <Label Content="39" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center"
+               VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False" />
+      </Border>
+      <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}"
+              tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[39].IsPicked}" Width="55.62"
+              VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,193.968,0,0">
+        <Border.Effect>
+          <DropShadowEffect />
+        </Border.Effect>
+        <Label Content="40" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center"
+               VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False" />
+      </Border>
+      <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}"
+              tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[40].IsPicked}" Width="55.62"
+              HorizontalAlignment="Left" Margin="0,258.624,0,281.718" d:LayoutOverrides="Height">
+        <Border.Effect>
+          <DropShadowEffect />
+        </Border.Effect>
+        <Label Content="41" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center"
+               VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False" />
+      </Border>
+      <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}"
+              tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[41].IsPicked}" Width="55.62"
+              HorizontalAlignment="Left" Margin="60.62,258.624,0,281.718" d:LayoutOverrides="Height">
+        <Border.Effect>
+          <DropShadowEffect />
+        </Border.Effect>
+        <Label Content="42" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center"
+               VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False" />
+      </Border>
+      <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}"
+              tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[42].IsPicked}" Width="55.62"
+              HorizontalAlignment="Left" Margin="121.24,258.624,0,281.718" d:LayoutOverrides="Height">
+        <Border.Effect>
+          <DropShadowEffect />
+        </Border.Effect>
+        <Label Content="43" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center"
+               VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False" />
+      </Border>
+      <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}"
+              tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[43].IsPicked}" Width="55.62"
+              HorizontalAlignment="Left" Margin="181.86,258.624,0,281.718" d:LayoutOverrides="Height">
+        <Border.Effect>
+          <DropShadowEffect />
+        </Border.Effect>
+        <Label Content="44" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center"
+               VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False" />
+      </Border>
+      <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}"
+              tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[44].IsPicked}" Width="55.62"
+              HorizontalAlignment="Left" Margin="242.48,258.624,0,281.718" d:LayoutOverrides="Height">
+        <Border.Effect>
+          <DropShadowEffect />
+        </Border.Effect>
+        <Label Content="45" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center"
+               VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False" />
+      </Border>
+      <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}"
+              tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[45].IsPicked}" Width="55.62"
+              HorizontalAlignment="Right" Margin="0,258.624,241.28,281.718" d:LayoutOverrides="Height">
+        <Border.Effect>
+          <DropShadowEffect />
+        </Border.Effect>
+        <Label Content="46" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center"
+               VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False" />
+      </Border>
+      <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}"
+              tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[46].IsPicked}" Width="55.62"
+              HorizontalAlignment="Right" Margin="0,258.624,180.66,281.718" d:LayoutOverrides="Height">
+        <Border.Effect>
+          <DropShadowEffect />
+        </Border.Effect>
+        <Label Content="47" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center"
+               VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False" />
+      </Border>
+      <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}"
+              tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[47].IsPicked}" Width="55.62"
+              HorizontalAlignment="Right" Margin="0,258.624,120.04,281.718" d:LayoutOverrides="Height">
+        <Border.Effect>
+          <DropShadowEffect />
+        </Border.Effect>
+        <Label Content="48" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center"
+               VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False" />
+      </Border>
+      <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}"
+              tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[48].IsPicked}" Width="55.62"
+              HorizontalAlignment="Right" Margin="0,258.624,59.42,281.718" d:LayoutOverrides="Height">
+        <Border.Effect>
+          <DropShadowEffect />
+        </Border.Effect>
+        <Label Content="49" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center"
+               VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False" />
+      </Border>
+      <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}"
+              tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[49].IsPicked}" Width="55.62"
+              HorizontalAlignment="Right" Margin="0,258.624,-1.2,281.718" d:LayoutOverrides="Height">
+        <Border.Effect>
+          <DropShadowEffect />
+        </Border.Effect>
+        <Label Content="50" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center"
+               VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False" />
+      </Border>
+      <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}"
+              tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[50].IsPicked}" Width="55.62"
+              HorizontalAlignment="Left" Margin="0,0,0,217.06" VerticalAlignment="Bottom">
+        <Border.Effect>
+          <DropShadowEffect />
+        </Border.Effect>
+        <Label Content="51" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center"
+               VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False" />
+      </Border>
+      <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}"
+              tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[51].IsPicked}" Width="55.62"
+              HorizontalAlignment="Left" Margin="60.62,0,0,217.06" VerticalAlignment="Bottom">
+        <Border.Effect>
+          <DropShadowEffect />
+        </Border.Effect>
+        <Label Content="52" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center"
+               VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False" />
+      </Border>
+      <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}"
+              tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[52].IsPicked}" Width="55.62"
+              HorizontalAlignment="Left" Margin="121.24,0,0,217.06" VerticalAlignment="Bottom">
+        <Border.Effect>
+          <DropShadowEffect />
+        </Border.Effect>
+        <Label Content="53" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center"
+               VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False" />
+      </Border>
+      <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}"
+              tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[53].IsPicked}" Width="55.62"
+              HorizontalAlignment="Left" Margin="181.86,0,0,217.06" VerticalAlignment="Bottom">
+        <Border.Effect>
+          <DropShadowEffect />
+        </Border.Effect>
+        <Label Content="54" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center"
+               VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False" />
+      </Border>
+      <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}"
+              tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[54].IsPicked}" Width="55.62"
+              HorizontalAlignment="Left" Margin="242.48,0,0,217.06" VerticalAlignment="Bottom">
+        <Border.Effect>
+          <DropShadowEffect />
+        </Border.Effect>
+        <Label Content="55" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center"
+               VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False" />
+      </Border>
+      <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}"
+              tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[55].IsPicked}" Width="55.62"
+              HorizontalAlignment="Right" Margin="0,0,241.28,217.06" VerticalAlignment="Bottom">
+        <Border.Effect>
+          <DropShadowEffect />
+        </Border.Effect>
+        <Label Content="56" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center"
+               VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False" />
+      </Border>
+      <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}"
+              tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[56].IsPicked}" Width="55.62"
+              HorizontalAlignment="Right" Margin="0,0,180.66,217.06" VerticalAlignment="Bottom">
+        <Border.Effect>
+          <DropShadowEffect />
+        </Border.Effect>
+        <Label Content="57" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center"
+               VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False" />
+      </Border>
+      <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}"
+              tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[57].IsPicked}" Width="55.62"
+              HorizontalAlignment="Right" Margin="0,0,120.04,217.06" VerticalAlignment="Bottom">
+        <Border.Effect>
+          <DropShadowEffect />
+        </Border.Effect>
+        <Label Content="58" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center"
+               VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False" />
+      </Border>
+      <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}"
+              tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[58].IsPicked}" Width="55.62"
+              HorizontalAlignment="Right" Margin="0,0,59.42,217.06" VerticalAlignment="Bottom">
+        <Border.Effect>
+          <DropShadowEffect />
+        </Border.Effect>
+        <Label Content="59" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center"
+               VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False" />
+      </Border>
+      <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}"
+              tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[59].IsPicked}" Width="55.62"
+              HorizontalAlignment="Right" Margin="0,0,-1.2,217.06" VerticalAlignment="Bottom">
+        <Border.Effect>
+          <DropShadowEffect />
+        </Border.Effect>
+        <Label Content="60" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center"
+               VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False" />
+      </Border>
+      <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}"
+              tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[60].IsPicked}" Width="55.62"
+              HorizontalAlignment="Left" Margin="-1.2,0,0,152.403" VerticalAlignment="Bottom">
+        <Border.Effect>
+          <DropShadowEffect />
+        </Border.Effect>
+        <Label Content="61" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center"
+               VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False" />
+      </Border>
+      <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}"
+              tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[61].IsPicked}" Width="55.62"
+              HorizontalAlignment="Left" Margin="59.42,0,0,152.403" VerticalAlignment="Bottom">
+        <Border.Effect>
+          <DropShadowEffect />
+        </Border.Effect>
+        <Label Content="62" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center"
+               VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False" />
+      </Border>
+      <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}"
+              tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[62].IsPicked}" Width="55.62"
+              HorizontalAlignment="Left" Margin="120.04,0,0,152.403" VerticalAlignment="Bottom">
+        <Border.Effect>
+          <DropShadowEffect />
+        </Border.Effect>
+        <Label Content="63" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center"
+               VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False" />
+      </Border>
+      <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}"
+              tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[63].IsPicked}" Width="55.62"
+              HorizontalAlignment="Left" Margin="180.66,0,0,152.403" VerticalAlignment="Bottom">
+        <Border.Effect>
+          <DropShadowEffect />
+        </Border.Effect>
+        <Label Content="64" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center"
+               VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False" />
+      </Border>
+      <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}"
+              tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[64].IsPicked}" Width="55.62"
+              HorizontalAlignment="Left" Margin="241.28,0,0,152.403" VerticalAlignment="Bottom">
+        <Border.Effect>
+          <DropShadowEffect />
+        </Border.Effect>
+        <Label Content="65" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center"
+               VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False" />
+      </Border>
+      <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}"
+              tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[65].IsPicked}" Width="55.62"
+              HorizontalAlignment="Right" Margin="0,0,242.48,152.403" VerticalAlignment="Bottom">
+        <Border.Effect>
+          <DropShadowEffect />
+        </Border.Effect>
+        <Label Content="66" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center"
+               VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False" />
+      </Border>
+      <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}"
+              tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[66].IsPicked}" Width="55.62"
+              HorizontalAlignment="Right" Margin="0,0,181.86,152.403" VerticalAlignment="Bottom">
+        <Border.Effect>
+          <DropShadowEffect />
+        </Border.Effect>
+        <Label Content="67" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center"
+               VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False" />
+      </Border>
+      <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}"
+              tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[67].IsPicked}" Width="55.62"
+              HorizontalAlignment="Right" Margin="0,0,121.24,152.403" VerticalAlignment="Bottom">
+        <Border.Effect>
+          <DropShadowEffect />
+        </Border.Effect>
+        <Label Content="68" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center"
+               VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False" />
+      </Border>
+      <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}"
+              tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[68].IsPicked}" Width="55.62"
+              HorizontalAlignment="Right" Margin="0,0,60.62,152.403" VerticalAlignment="Bottom">
+        <Border.Effect>
+          <DropShadowEffect />
+        </Border.Effect>
+        <Label Content="69" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center"
+               VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False" />
+      </Border>
+      <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}"
+              tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[69].IsPicked}" Width="55.62"
+              HorizontalAlignment="Right" Margin="0,0,0,152.403" VerticalAlignment="Bottom">
+        <Border.Effect>
+          <DropShadowEffect />
+        </Border.Effect>
+        <Label Content="70" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center"
+               VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False" />
+      </Border>
+      <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}"
+              tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[70].IsPicked}" Width="55.62"
+              HorizontalAlignment="Left" Margin="0,0,0,87.746" VerticalAlignment="Bottom">
+        <Border.Effect>
+          <DropShadowEffect />
+        </Border.Effect>
+        <Label Content="71" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center"
+               VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False" />
+      </Border>
+      <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}"
+              tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[71].IsPicked}" Width="55.62"
+              HorizontalAlignment="Left" Margin="60.62,0,0,87.746" VerticalAlignment="Bottom">
+        <Border.Effect>
+          <DropShadowEffect />
+        </Border.Effect>
+        <Label Content="72" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center"
+               VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False" />
+      </Border>
+      <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}"
+              tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[72].IsPicked}" Width="55.62"
+              HorizontalAlignment="Left" Margin="121.24,0,0,87.746" VerticalAlignment="Bottom">
+        <Border.Effect>
+          <DropShadowEffect />
+        </Border.Effect>
+        <Label Content="73" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center"
+               VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False" />
+      </Border>
+      <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}"
+              tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[73].IsPicked}" Width="55.62"
+              HorizontalAlignment="Left" Margin="181.86,0,0,87.746" VerticalAlignment="Bottom">
+        <Border.Effect>
+          <DropShadowEffect />
+        </Border.Effect>
+        <Label Content="74" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center"
+               VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False" />
+      </Border>
+      <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}"
+              tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[74].IsPicked}" Width="55.62"
+              HorizontalAlignment="Left" Margin="242.48,0,0,87.746" VerticalAlignment="Bottom">
+        <Border.Effect>
+          <DropShadowEffect />
+        </Border.Effect>
+        <Label Content="75" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center"
+               VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False" />
+      </Border>
+      <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}"
+              tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[75].IsPicked}" Width="55.62"
+              HorizontalAlignment="Right" Margin="0,0,241.28,87.746" VerticalAlignment="Bottom">
+        <Border.Effect>
+          <DropShadowEffect />
+        </Border.Effect>
+        <Label Content="76" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center"
+               VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False" />
+      </Border>
+      <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}"
+              tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[76].IsPicked}" Width="55.62"
+              HorizontalAlignment="Right" Margin="0,0,180.66,87.746" VerticalAlignment="Bottom">
+        <Border.Effect>
+          <DropShadowEffect />
+        </Border.Effect>
+        <Label Content="77" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center"
+               VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False" />
+      </Border>
+      <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}"
+              tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[77].IsPicked}" Width="55.62"
+              HorizontalAlignment="Right" Margin="0,0,120.04,87.746" VerticalAlignment="Bottom">
+        <Border.Effect>
+          <DropShadowEffect />
+        </Border.Effect>
+        <Label Content="78" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center"
+               VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False" />
+      </Border>
+      <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}"
+              tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[78].IsPicked}" Width="55.62"
+              HorizontalAlignment="Right" Margin="0,0,59.42,87.746" VerticalAlignment="Bottom">
+        <Border.Effect>
+          <DropShadowEffect />
+        </Border.Effect>
+        <Label Content="79" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center"
+               VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False" />
+      </Border>
+      <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}"
+              tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[79].IsPicked}" Width="55.62"
+              HorizontalAlignment="Right" Margin="0,0,-1.2,87.746" VerticalAlignment="Bottom">
+        <Border.Effect>
+          <DropShadowEffect />
+        </Border.Effect>
+        <Label Content="80" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center"
+               VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False" />
+      </Border>
+      <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}"
+              tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[80].IsPicked}" Width="55.62"
+              HorizontalAlignment="Left" Margin="0,0,0,23.089" VerticalAlignment="Bottom">
+        <Border.Effect>
+          <DropShadowEffect />
+        </Border.Effect>
+        <Label Content="81" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center"
+               VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False" />
+      </Border>
+      <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}"
+              tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[81].IsPicked}" Width="55.62"
+              HorizontalAlignment="Left" Margin="60.62,0,0,23.089" VerticalAlignment="Bottom">
+        <Border.Effect>
+          <DropShadowEffect />
+        </Border.Effect>
+        <Label Content="82" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center"
+               VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False" />
+      </Border>
+      <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}"
+              tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[82].IsPicked}" Width="55.62"
+              HorizontalAlignment="Left" Margin="121.24,0,0,23.089" VerticalAlignment="Bottom">
+        <Border.Effect>
+          <DropShadowEffect />
+        </Border.Effect>
+        <Label Content="83" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center"
+               VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False" />
+      </Border>
+      <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}"
+              tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[83].IsPicked}" Width="55.62"
+              HorizontalAlignment="Left" Margin="181.86,0,0,23.089" VerticalAlignment="Bottom">
+        <Border.Effect>
+          <DropShadowEffect />
+        </Border.Effect>
+        <Label Content="84" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center"
+               VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False" />
+      </Border>
+      <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}"
+              tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[84].IsPicked}" Width="55.62"
+              HorizontalAlignment="Left" Margin="242.48,0,0,23.089" VerticalAlignment="Bottom">
+        <Border.Effect>
+          <DropShadowEffect />
+        </Border.Effect>
+        <Label Content="85" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center"
+               VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False" />
+      </Border>
+      <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}"
+              tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[85].IsPicked}" Width="55.62"
+              HorizontalAlignment="Right" Margin="0,0,241.28,23.089" VerticalAlignment="Bottom">
+        <Border.Effect>
+          <DropShadowEffect />
+        </Border.Effect>
+        <Label Content="86" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center"
+               VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False" />
+      </Border>
+      <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}"
+              tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[86].IsPicked}" Width="55.62"
+              HorizontalAlignment="Right" Margin="0,0,180.66,23.089" VerticalAlignment="Bottom">
+        <Border.Effect>
+          <DropShadowEffect />
+        </Border.Effect>
+        <Label Content="87" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center"
+               VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False" />
+      </Border>
+      <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}"
+              tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[87].IsPicked}" Width="55.62"
+              HorizontalAlignment="Right" Margin="0,0,120.04,23.089" VerticalAlignment="Bottom">
+        <Border.Effect>
+          <DropShadowEffect />
+        </Border.Effect>
+        <Label Content="88" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center"
+               VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False" />
+      </Border>
+      <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}"
+              tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[88].IsPicked}" Width="55.62"
+              HorizontalAlignment="Right" Margin="0,0,59.42,23.089" VerticalAlignment="Bottom">
+        <Border.Effect>
+          <DropShadowEffect />
+        </Border.Effect>
+        <Label Content="89" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center"
+               VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False" />
+      </Border>
+      <Border BorderThickness="0" CornerRadius="15" Background="#FFFFE459" Style="{DynamicResource BorderStyle}"
+              tools:ControlExtensions.IsPicked="{Binding Event.NumberBoard.Board[89].IsPicked}" Width="55.62"
+              HorizontalAlignment="Right" Margin="0,0,-1.2,23.089" VerticalAlignment="Bottom">
+        <Border.Effect>
+          <DropShadowEffect />
+        </Border.Effect>
+        <Label Content="90" FontSize="37.333" Foreground="Black" FontFamily="Segoe WP Black" VerticalAlignment="Center"
+               VerticalContentAlignment="Center" HorizontalContentAlignment="Center" d:IsHidden="False" />
+      </Border>
 
 
     </Grid>

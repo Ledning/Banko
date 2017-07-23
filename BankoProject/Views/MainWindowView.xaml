@@ -18,18 +18,17 @@
   WindowStyle="None" SnapsToDevicePixels="True" AllowsTransparency="True" ResizeMode="CanResizeWithGrip"
   Icon="/BankoProject;component/Resources/bingo1.png"
   dialog:DialogParticipation.Register="ShowDialog"
-  cal:Message.Attach="[Event Closing] = [Action OnApplicationExit()]"
-  >
+  cal:Message.Attach="[Event Closing] = [Action OnApplicationExit()]">
   <metro:MetroWindow.Resources>
     <ResourceDictionary>
       <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="Styles/GeneralStyle.xaml"/>
-        <ResourceDictionary Source="Styles/ButtonStyle.xaml"/>
+        <ResourceDictionary Source="Styles/GeneralStyle.xaml" />
+        <ResourceDictionary Source="Styles/ButtonStyle.xaml" />
       </ResourceDictionary.MergedDictionaries>
     </ResourceDictionary>
   </metro:MetroWindow.Resources>
   <metro:MetroWindow.Background>
-    <ImageBrush ImageSource="/BankoProject;component/Resources/10995537_695452673897093_536015149067717983_o.jpg"/>
+    <ImageBrush ImageSource="/BankoProject;component/Resources/10995537_695452673897093_536015149067717983_o.jpg" />
   </metro:MetroWindow.Background>
 
   <Viewbox VerticalAlignment="Top" ClipToBounds="True">
@@ -37,7 +36,7 @@
   </Viewbox>
   <metro:MetroWindow.Flyouts>
     <metro:FlyoutsControl>
-      <metro:Flyout DataContext="{Binding FlyoutViewModel}" 
+      <metro:Flyout DataContext="{Binding FlyoutViewModel}"
                     Position="Right"
                     Header="{Binding DisplayName}"
                     IsOpen="{Binding IsOpen}"
@@ -53,7 +52,7 @@
 
   <metro:MetroWindow.RightWindowCommands>
     <metro:WindowCommands>
-      <ToggleButton Content="Indstillinger" IsChecked="{Binding FlyoutViewModel.IsOpen}" Cursor="Hand"></ToggleButton>
+      <ToggleButton Content="Indstillinger" IsChecked="{Binding FlyoutViewModel.IsOpen}" Cursor="Hand" />
     </metro:WindowCommands>
   </metro:MetroWindow.RightWindowCommands>
 

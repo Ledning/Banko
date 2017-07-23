@@ -8,7 +8,6 @@ namespace BankoProject.Tools
 {
   public class ApplicationWideEnums
   {
-
     /// <summary>
     /// Refers to the different messages this applicatin can pass around internally, each specifying some kind of action, discernible by the name of the enum member.
     /// </summary>
@@ -21,12 +20,12 @@ namespace BankoProject.Tools
       RbPrezScreen,
       Save,
       Load,
-      GeneratePlates, 
-      CreateApplicationDirectories, 
+      GeneratePlates,
+      CreateApplicationDirectories,
       FullscreenOverlay,
       BoardOverview,
-      LatestNumbers, 
-      BingoHappened, 
+      LatestNumbers,
+      BingoHappened,
       ClosePrez,
       ScrnActivationTriggered,
       FullscreenOverlayBlank,
@@ -38,11 +37,11 @@ namespace BankoProject.Tools
     /// </summary>
     public enum SenderTypes
     {
-      WelcomeView, 
+      WelcomeView,
       ControlPanelView,
       EventSelectedView,
       MainWindowView, //this one is mainly the recieving place for all these requests, probably shouldnt be used for like design reasons
-      DebuggingView, 
+      DebuggingView,
     }
 
     public struct AspectRatio

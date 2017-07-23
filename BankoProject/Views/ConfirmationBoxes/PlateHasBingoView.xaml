@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BankoProject.Views.ConfirmationBoxes"
         mc:Ignorable="d"
-                Icon="../logoalpha.png"
+        Icon="../logoalpha.png"
         ResizeMode="NoResize"
         xmlns:metro="http://metro.mahapps.com/winfx/xaml/controls"
         WindowStartupLocation="CenterOwner"
@@ -13,14 +13,17 @@
         MaxHeight="300"
         MaxWidth="400">
   <Window.Resources>
-    <ResourceDictionary Source="../../Views/Styles/DialogBoxStyle.xaml"></ResourceDictionary>
+    <ResourceDictionary Source="../../Views/Styles/DialogBoxStyle.xaml" />
   </Window.Resources>
   <DockPanel LastChildFill="False">
-        <DockPanel.Background>
-            <SolidColorBrush Color="{Binding Brush}"></SolidColorBrush>
-        </DockPanel.Background>
-    <Button IsDefault="True"  x:Name="OK" Content="OK" HorizontalAlignment="center" VerticalAlignment="Bottom" Width="100" Height="40" DockPanel.Dock="Bottom" Margin="0,50,0,0"/>
-    <TextBlock x:Name="textBlock" Text="{Binding AnswerText}" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top" Height="Auto" Width="Auto" Background="LightSlateGray" FontSize="14" FontWeight="Bold" DockPanel.Dock="Top"/>
+    <DockPanel.Background>
+      <SolidColorBrush Color="{Binding Brush}" />
+    </DockPanel.Background>
+    <Button IsDefault="True" x:Name="OK" Content="OK" HorizontalAlignment="center" VerticalAlignment="Bottom"
+            Width="100" Height="40" DockPanel.Dock="Bottom" Margin="0,50,0,0" />
+    <TextBlock x:Name="textBlock" Text="{Binding AnswerText}" HorizontalAlignment="Center" TextWrapping="Wrap"
+               VerticalAlignment="Top" Height="Auto" Width="Auto" Background="LightSlateGray" FontSize="14"
+               FontWeight="Bold" DockPanel.Dock="Top" />
   </DockPanel>
 
 </Window>

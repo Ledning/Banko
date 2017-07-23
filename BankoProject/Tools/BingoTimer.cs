@@ -13,12 +13,11 @@ namespace BankoProject.Tools
 {
   public class BingoTimer : PropertyChangedBase
   {
-
     private bool _countUp; //this property decides if the timer counts up or down
-    private int _countDownInput;//should prolly enter seconds
+    private int _countDownInput; //should prolly enter seconds
     private Stopwatch _stopWatch;
     private DispatcherTimer _timer;
-    private string _currentTime="00:00:00";
+    private string _currentTime = "00:00:00";
     private string _localTime = "00:00:00";
     private BingoEvent Event;
 
@@ -26,12 +25,14 @@ namespace BankoProject.Tools
 
     //dispatcherTimer_Tick
     private TimeSpan _currentTimeSpan;
+
     private TimeSpan _localTimeSpan;
     private TimeSpan _emptyTimeSpan;
     private TimeSpan _targetTimeSpan;
 
     #region Constructors
-    public BingoTimer( int seconds)
+
+    public BingoTimer(int seconds)
     {
       Event = IoC.Get<BingoEvent>();
       this._currentTimeSpan = new TimeSpan();
@@ -53,13 +54,19 @@ namespace BankoProject.Tools
         this._countUp = false;
       }
     }
+
     #endregion
 
     #region Properties
+
     public int CountDownInput
     {
       get { return _countDownInput; }
-      set { _countDownInput = value; NotifyOfPropertyChange(() => CountDownInput); }
+      set
+      {
+        _countDownInput = value;
+        NotifyOfPropertyChange(() => CountDownInput);
+      }
     }
 
     public string CurrentTime
@@ -74,26 +81,38 @@ namespace BankoProject.Tools
         {
           return LocalTime;
         }
-        
       }
-      set { _currentTime = value; NotifyOfPropertyChange(() => CurrentTime); }
+      set
+      {
+        _currentTime = value;
+        NotifyOfPropertyChange(() => CurrentTime);
+      }
     }
 
     public bool IsTimerStarted
     {
       get { return _isTimerStarted; }
-      set { _isTimerStarted = value; NotifyOfPropertyChange(()=>IsTimerStarted);}
+      set
+      {
+        _isTimerStarted = value;
+        NotifyOfPropertyChange(() => IsTimerStarted);
+      }
     }
 
     public string LocalTime
     {
       get { return _localTime; }
-      set { _localTime = value; NotifyOfPropertyChange(()=>LocalTime);}
+      set
+      {
+        _localTime = value;
+        NotifyOfPropertyChange(() => LocalTime);
+      }
     }
 
     #endregion
 
     #region Methods
+
     private void dispatcherTimer_Tick(object sender, EventArgs e)
     {
       if (_countUp)
@@ -125,7 +144,7 @@ namespace BankoProject.Tools
     private string FormatString(TimeSpan timespan)
     {
       string currentTime = String.Format("{0:00}:{1:00}:{2:00}",
-                timespan.Minutes, timespan.Seconds, timespan.Milliseconds / 10);
+        timespan.Minutes, timespan.Seconds, timespan.Milliseconds / 10);
       return currentTime;
     }
 
@@ -140,11 +159,11 @@ namespace BankoProject.Tools
         this.CountDownInput = 0;
       }
     }
+
     #endregion
 
     public void TimerStart()
     {
-
       if (!this._timer.IsEnabled)
       {
         this._timer.Start();

@@ -14,6 +14,7 @@ namespace BankoProject.Models
   {
     //this class is necessary because the position in which the numbers are being drawn needs to be recorded.
     private int value;
+
     private bool isPicked = false;
     private bool _isChecked = false;
     private readonly ILog _log = LogManager.GetLog(typeof(BingoNumber));
@@ -21,7 +22,6 @@ namespace BankoProject.Models
     //TODO: Samme deal som med Comp Obj o lign, der skal laves en alternativ måde at gøre det på.
     public BingoNumber()
     {
-      
     }
 
     public BingoNumber(int value)
@@ -43,13 +43,21 @@ namespace BankoProject.Models
     public bool IsChecked
     {
       get { return _isChecked; }
-      set { _isChecked = value; NotifyOfPropertyChange(()=> IsChecked); }
+      set
+      {
+        _isChecked = value;
+        NotifyOfPropertyChange(() => IsChecked);
+      }
     }
 
     public int Value
     {
       get { return value; }
-      set { this.value = value; NotifyOfPropertyChange(()=>Value);}
+      set
+      {
+        this.value = value;
+        NotifyOfPropertyChange(() => Value);
+      }
     }
 
     public string VText

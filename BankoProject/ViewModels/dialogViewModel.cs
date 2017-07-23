@@ -11,25 +11,27 @@ namespace BankoProject.ViewModels
   class dialogViewModel : Screen
   {
     #region Fields
+
     private bool _response = false;
-    private string _text; 
+    private string _text;
+
     #endregion
 
     #region Constructors
+
     public dialogViewModel(string text)
     {
       Text = text;
       DisplayName = "Bekræft Handling";
     }
+
     #endregion
 
     #region Properties
+
     public string Text
     {
-      get
-      {
-        return _text;
-      }
+      get { return _text; }
 
       set
       {
@@ -37,9 +39,11 @@ namespace BankoProject.ViewModels
         NotifyOfPropertyChange(() => Text);
       }
     }
+
     #endregion
 
     #region Buttons
+
     public void AcceptButton()
     {
       TryClose(true);
@@ -48,7 +52,8 @@ namespace BankoProject.ViewModels
     public void CancelButton()
     {
       TryClose(false);
-    } 
+    }
+
     #endregion
 
     //HOW TO USE THIS PIECE OF SHIT? LOOOK NO FURTHER

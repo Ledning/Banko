@@ -22,7 +22,7 @@ namespace BankoProject.Models
   /// If the viewmodel itself has need to do anything with the functions here, maybe wrap them inside simple functions. 
   /// </summary>
   [Serializable]
-  public class PresentationScreenSettings: PropertyChangedBase
+  public class PresentationScreenSettings : PropertyChangedBase
   {
     private string _colorScheme;
     private int _width;
@@ -36,39 +36,60 @@ namespace BankoProject.Models
     private bool _closeWindow = false;
     private bool _isOverLayOpen = false;
 
-    [XmlIgnore]
-    private readonly ILog _log = LogManager.GetLog(typeof(BingoEvent));
+    [XmlIgnore] private readonly ILog _log = LogManager.GetLog(typeof(BingoEvent));
     private Dock _dockingPlace;
 
     #region Props
+
     public string colorScheme
     {
       get { return _colorScheme; }
-      set { _colorScheme = value; NotifyOfPropertyChange(() => colorScheme); }
+      set
+      {
+        _colorScheme = value;
+        NotifyOfPropertyChange(() => colorScheme);
+      }
     }
 
     public int Width
     {
-      get { return _width;}
-      set { _width = value; NotifyOfPropertyChange(() => Width); NotifyOfPropertyChange(()=>TimerWidth);}
+      get { return _width; }
+      set
+      {
+        _width = value;
+        NotifyOfPropertyChange(() => Width);
+        NotifyOfPropertyChange(() => TimerWidth);
+      }
     }
 
     public int Height
     {
-      get { return _height;}
-      set { _height = value; NotifyOfPropertyChange(() => Height); }
+      get { return _height; }
+      set
+      {
+        _height = value;
+        NotifyOfPropertyChange(() => Height);
+      }
     }
 
     public int Left
     {
       get { return _left; }
-      set { _left = value; NotifyOfPropertyChange(() => Left); } 
+      set
+      {
+        _left = value;
+        NotifyOfPropertyChange(() => Left);
+      }
     }
 
     public int Top
     {
       get { return _top; }
-      set { _top = value; NotifyOfPropertyChange(() => Top); }
+      set
+      {
+        _top = value;
+        NotifyOfPropertyChange(() => Top);
+      }
     }
 
 
@@ -79,71 +100,82 @@ namespace BankoProject.Models
 
     public int TimerWidth
     {
-      get
-      {
-        return (int)(Width*0.25);
-      }
+      get { return (int) (Width * 0.25); }
     }
 
     public int SelectedPresScreen
     {
-        get
-        {
-            return _selectedPresScreen;
-        }
+      get { return _selectedPresScreen; }
 
-        set
-        {
-            _selectedPresScreen = value; NotifyOfPropertyChange(() => SelectedPresScreen);
-        }
+      set
+      {
+        _selectedPresScreen = value;
+        NotifyOfPropertyChange(() => SelectedPresScreen);
+      }
     }
 
 
     public SolidColorBrush BackgroundBrush
     {
       get { return backgroundBrush; }
-      set { backgroundBrush = value; NotifyOfPropertyChange(() => BackgroundBrush); }
+      set
+      {
+        backgroundBrush = value;
+        NotifyOfPropertyChange(() => BackgroundBrush);
+      }
     }
 
     public WindowState State
     {
       get { return _state; }
-      set { _state = value; NotifyOfPropertyChange(() => State); }
+      set
+      {
+        _state = value;
+        NotifyOfPropertyChange(() => State);
+      }
     }
-
 
 
     public FullscreenOverlaySettings OverlaySettings
     {
       get { return _fullscreenOverlaySettings; }
-      set { _fullscreenOverlaySettings = value; NotifyOfPropertyChange(()=>OverlaySettings);}
+      set
+      {
+        _fullscreenOverlaySettings = value;
+        NotifyOfPropertyChange(() => OverlaySettings);
+      }
     }
 
     public bool CloseWindow
     {
       get { return _closeWindow; }
-      set { _closeWindow = value; NotifyOfPropertyChange(()=>CloseWindow);}
+      set
+      {
+        _closeWindow = value;
+        NotifyOfPropertyChange(() => CloseWindow);
+      }
     }
 
     public bool IsOverLayOpen
     {
       get { return _isOverLayOpen; }
-      set { _isOverLayOpen = value; NotifyOfPropertyChange(()=> IsOverLayOpen);}
+      set
+      {
+        _isOverLayOpen = value;
+        NotifyOfPropertyChange(() => IsOverLayOpen);
+      }
     }
 
     public Dock DockingPlace
     {
       get { return _dockingPlace; }
-      set { _dockingPlace = value; NotifyOfPropertyChange(()=>DockingPlace);}
+      set
+      {
+        _dockingPlace = value;
+        NotifyOfPropertyChange(() => DockingPlace);
+      }
     }
 
     #endregion
-
-
-
-    
-
-    
-    
   }
 }

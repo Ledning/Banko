@@ -10,10 +10,11 @@ namespace BankoProject.Models
 {
   public enum WinCondition
   {
-    SingleRow, 
+    SingleRow,
     DoubleRow,
     FullPlate
   }
+
   [Serializable]
   public class BankoOptions : PropertyChangedBase
   {
@@ -22,14 +23,13 @@ namespace BankoProject.Models
     private bool _fullPlate;
     private WinCondition _winCondition;
 
-    [XmlIgnore]
-    private readonly ILog _log = LogManager.GetLog(typeof(BankoOptions));
+    [XmlIgnore] private readonly ILog _log = LogManager.GetLog(typeof(BankoOptions));
 
     public WinCondition Condition
     {
       get
       {
-        if (SingleRow && !DoubleRow && ! FullPlate)
+        if (SingleRow && !DoubleRow && !FullPlate)
         {
           _log.Info("SingleRow condition");
           return WinCondition.SingleRow;
@@ -53,24 +53,44 @@ namespace BankoProject.Models
 
     public bool SingleRow
     {
-      get { _log.Info("SingleRow condition"); return _singleRow; }
-      set { _singleRow = value; NotifyOfPropertyChange(()=>SingleRow);}
+      get
+      {
+        _log.Info("SingleRow condition");
+        return _singleRow;
+      }
+      set
+      {
+        _singleRow = value;
+        NotifyOfPropertyChange(() => SingleRow);
+      }
     }
 
     public bool DoubleRow
     {
-      get { _log.Info("DoubleRow condition"); return _doubleRow; }
-      set { _doubleRow = value; NotifyOfPropertyChange(()=>DoubleRow);}
+      get
+      {
+        _log.Info("DoubleRow condition");
+        return _doubleRow;
+      }
+      set
+      {
+        _doubleRow = value;
+        NotifyOfPropertyChange(() => DoubleRow);
+      }
     }
 
     public bool FullPlate
     {
-      get { _log.Info("FullPlate condition"); return _fullPlate; }
-      set { _fullPlate = value; NotifyOfPropertyChange(()=>FullPlate);}
+      get
+      {
+        _log.Info("FullPlate condition");
+        return _fullPlate;
+      }
+      set
+      {
+        _fullPlate = value;
+        NotifyOfPropertyChange(() => FullPlate);
+      }
     }
-
-
-
-
   }
 }

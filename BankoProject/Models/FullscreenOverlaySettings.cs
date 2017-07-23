@@ -19,22 +19,16 @@ namespace BankoProject.Models
     private Visibility _isOverlayVisible = Visibility.Visible;
     private string _selectedBackgroundPath;
     private bool _stdScrnOL;
-    [XmlIgnore]
-    private int _selectedIndex = 0;
-    [XmlIgnore]
-    private BindableCollection<string> _customOverlayImages;
+    [XmlIgnore] private int _selectedIndex = 0;
+    [XmlIgnore] private BindableCollection<string> _customOverlayImages;
     private bool _scrnActivationRequired;
-    [XmlIgnore]
-    private const string resourceFolder = "\\BankoProject;component\\Resources\\";
-    [XmlIgnore]
-    private readonly string standardOverlay = resourceFolder + "StandardOverlay.jpg";
-    [XmlIgnore]
-    private readonly ILog _log = LogManager.GetLog(typeof(MainWindowViewModel));
+    [XmlIgnore] private const string resourceFolder = "\\BankoProject;component\\Resources\\";
+    [XmlIgnore] private readonly string standardOverlay = resourceFolder + "StandardOverlay.jpg";
+    [XmlIgnore] private readonly ILog _log = LogManager.GetLog(typeof(MainWindowViewModel));
 
 
     public FullscreenOverlaySettings()
     {
-
       var dueTime = TimeSpan.FromSeconds(10);
       var interval = TimeSpan.FromSeconds(10);
       RunPeriodicAsync(UpdateBackgrounds, dueTime, interval, CancellationToken.None);
@@ -80,7 +74,7 @@ namespace BankoProject.Models
           CustomOverlayImages.Add(background.FullName);
         }
       }
-      NotifyOfPropertyChange(()=>CustomOverlayImagesConverter);
+      NotifyOfPropertyChange(() => CustomOverlayImagesConverter);
     }
 
     #region props
@@ -121,7 +115,7 @@ namespace BankoProject.Models
       set
       {
         _selectedIndex = value;
-          NotifyOfPropertyChange(() => SelectedIndex);
+        NotifyOfPropertyChange(() => SelectedIndex);
         _log.Info(_selectedIndex.ToString());
       }
     }
@@ -147,7 +141,7 @@ namespace BankoProject.Models
         {
           if (CustomOverlayImages != null)
           {
-            if (CustomOverlayImages.Count!=0)
+            if (CustomOverlayImages.Count != 0)
             {
               SelectedBackgroundPath = CustomOverlayImages[SelectedIndex];
             }
@@ -168,7 +162,12 @@ namespace BankoProject.Models
     public BindableCollection<string> CustomOverlayImages
     {
       get { return _customOverlayImages; }
-      set { _customOverlayImages = value; NotifyOfPropertyChange(()=>CustomOverlayImages); NotifyOfPropertyChange(()=>(CustomOverlayImagesConverter));}
+      set
+      {
+        _customOverlayImages = value;
+        NotifyOfPropertyChange(() => CustomOverlayImages);
+        NotifyOfPropertyChange(() => (CustomOverlayImagesConverter));
+      }
     }
 
 
@@ -177,13 +176,13 @@ namespace BankoProject.Models
       get
       {
         BindableCollection<string> resultCollection = new BindableCollection<string>();
-          foreach (string item in CustomOverlayImages)
+        foreach (string item in CustomOverlayImages)
+        {
+          if (!(item.LastIndexOf("\\") < 0))
           {
-            if (!(item.LastIndexOf("\\") < 0))
-            {
-              resultCollection.Add(item.Substring(item.LastIndexOf("\\", item.Length)));
-            }
+            resultCollection.Add(item.Substring(item.LastIndexOf("\\", item.Length)));
           }
+        }
         return resultCollection;
       }
     }

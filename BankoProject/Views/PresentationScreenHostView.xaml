@@ -3,30 +3,35 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-                   xmlns:metro="http://metro.mahapps.com/winfx/xaml/controls"
+        xmlns:metro="http://metro.mahapps.com/winfx/xaml/controls"
         xmlns:styles="clr-namespace:BankoProject.Views.Styles"
-                      xmlns:tools="clr-namespace:BankoProject.Tools"
+        xmlns:tools="clr-namespace:BankoProject.Tools"
         mc:Ignorable="d"
 
-        WindowStartupLocation="Manual" Height="{Binding Event.WindowSettings.PrsSettings.Height}" Width="{Binding Event.WindowSettings.PrsSettings.Width}" Focusable="False"
+        WindowStartupLocation="Manual" Height="{Binding Event.WindowSettings.PrsSettings.Height}"
+        Width="{Binding Event.WindowSettings.PrsSettings.Width}" Focusable="False"
         WindowState="{Binding Event.WindowSettings.PrsSettings.State}"
-        ResizeMode ="NoResize"
+        ResizeMode="NoResize"
 
-        Background="{Binding Event.WindowSettings.BgColor}" Top="{Binding Event.WindowSettings.PrsSettings.Top, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Left="{Binding Event.WindowSettings.PrsSettings.Left, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" ShowInTaskbar="False" Topmost="False" IsHitTestVisible="False" AllowsTransparency="True" WindowStyle="None" >
+        Background="{Binding Event.WindowSettings.BgColor}"
+        Top="{Binding Event.WindowSettings.PrsSettings.Top, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+        Left="{Binding Event.WindowSettings.PrsSettings.Left, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+        ShowInTaskbar="False" Topmost="False" IsHitTestVisible="False" AllowsTransparency="True" WindowStyle="None">
   <Window.Resources>
     <ResourceDictionary>
       <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="Styles/TransitionStyle.xaml">
-        </ResourceDictionary>
+        <ResourceDictionary Source="Styles/TransitionStyle.xaml" />
 
       </ResourceDictionary.MergedDictionaries>
     </ResourceDictionary>
   </Window.Resources>
 
-  <DockPanel  LastChildFill="False">
+  <DockPanel LastChildFill="False">
     <Viewbox DockPanel.Dock="{Binding Event.WindowSettings.PrsSettings.DockingPlace}">
-      <metro:TransitioningContentControl Style="{StaticResource specialTransition}" x:Name="ActiveItem" RestartTransitionOnContentChange="True" tools:ControlExtensions.IsPicked="{Binding FadeOut, NotifyOnTargetUpdated=True}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
-      </metro:TransitioningContentControl>
+      <metro:TransitioningContentControl Style="{StaticResource specialTransition}" x:Name="ActiveItem"
+                                         RestartTransitionOnContentChange="True"
+                                         tools:ControlExtensions.IsPicked="{Binding FadeOut, NotifyOnTargetUpdated=True}"
+                                         HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
     </Viewbox>
   </DockPanel>
 

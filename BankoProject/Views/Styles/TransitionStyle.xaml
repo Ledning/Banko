@@ -5,24 +5,24 @@
 
                     xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls">
   <Style TargetType="controls:TransitioningContentControl"
-	       x:Key="specialTransition">
+         x:Key="specialTransition">
     <Setter Property="HorizontalContentAlignment"
-		        Value="Stretch" />
+            Value="Stretch" />
     <Setter Property="VerticalContentAlignment"
-		        Value="Stretch" />
+            Value="Stretch" />
     <Setter Property="HorizontalAlignment"
-		        Value="Stretch" />
+            Value="Stretch" />
     <Setter Property="VerticalAlignment"
-		        Value="Stretch" />
+            Value="Stretch" />
     <Setter Property="Transition"
-		        Value="Default" />
+            Value="Default" />
     <Setter Property="Template">
       <Setter.Value>
         <ControlTemplate TargetType="controls:TransitioningContentControl">
           <Border BorderBrush="{TemplateBinding BorderBrush}"
-					        BorderThickness="{TemplateBinding BorderThickness}"
-					        Background="{TemplateBinding Background}"
-					        CornerRadius="2">
+                  BorderThickness="{TemplateBinding BorderThickness}"
+                  Background="{TemplateBinding Background}"
+                  CornerRadius="2">
             <VisualStateManager.CustomVisualStateManager>
               <ei:ExtendedVisualStateManager />
             </VisualStateManager.CustomVisualStateManager>
@@ -31,14 +31,14 @@
                 <VisualStateGroup.Transitions>
                   <VisualTransition GeneratedDuration="0:0:1">
                     <VisualTransition.GeneratedEasingFunction>
-                      <QuarticEase EasingMode="EaseInOut"/>
+                      <QuarticEase EasingMode="EaseInOut" />
                     </VisualTransition.GeneratedEasingFunction>
                     <ei:ExtendedVisualStateManager.TransitionEffect>
-                      <ee:FadeTransitionEffect/>
+                      <ee:FadeTransitionEffect />
                     </ei:ExtendedVisualStateManager.TransitionEffect>
                     <Storyboard>
                       <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)"
-											                               Storyboard.TargetName="PreviousContentPresentationSite">
+                                                     Storyboard.TargetName="PreviousContentPresentationSite">
                         <DiscreteObjectKeyFrame KeyTime="0:0:0.1">
                           <DiscreteObjectKeyFrame.Value>
                             <Visibility>Collapsed</Visibility>
@@ -51,8 +51,8 @@
                 <VisualState x:Name="DefaultTransition">
                   <Storyboard>
                     <ObjectAnimationUsingKeyFrames BeginTime="00:00:00"
-										                               Storyboard.TargetProperty="(UIElement.Visibility)"
-										                               Storyboard.TargetName="PreviousContentPresentationSite">
+                                                   Storyboard.TargetProperty="(UIElement.Visibility)"
+                                                   Storyboard.TargetName="PreviousContentPresentationSite">
                       <DiscreteObjectKeyFrame KeyTime="00:00:00">
                         <DiscreteObjectKeyFrame.Value>
                           <Visibility>Collapsed</Visibility>
@@ -64,8 +64,8 @@
                 <VisualState x:Name="Normal">
                   <Storyboard>
                     <ObjectAnimationUsingKeyFrames BeginTime="00:00:00"
-										                               Storyboard.TargetProperty="(UIElement.Visibility)"
-										                               Storyboard.TargetName="PreviousContentPresentationSite">
+                                                   Storyboard.TargetProperty="(UIElement.Visibility)"
+                                                   Storyboard.TargetName="PreviousContentPresentationSite">
                       <DiscreteObjectKeyFrame KeyTime="00:00:00">
                         <DiscreteObjectKeyFrame.Value>
                           <Visibility>Collapsed</Visibility>
@@ -78,10 +78,10 @@
             </VisualStateManager.VisualStateGroups>
             <Grid>
               <ContentPresenter x:Name="PreviousContentPresentationSite"
-							                  ContentTemplate="{TemplateBinding ContentTemplate}"
-							                  Content="{x:Null}"
-							                  HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-							                  VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
+                                ContentTemplate="{TemplateBinding ContentTemplate}"
+                                Content="{x:Null}"
+                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
                 <ContentPresenter.RenderTransform>
                   <TransformGroup>
                     <ScaleTransform />
@@ -92,10 +92,10 @@
                 </ContentPresenter.RenderTransform>
               </ContentPresenter>
               <ContentPresenter x:Name="CurrentContentPresentationSite"
-							                  ContentTemplate="{TemplateBinding ContentTemplate}"
-							                  Content="{x:Null}"
-							                  HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-							                  VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
+                                ContentTemplate="{TemplateBinding ContentTemplate}"
+                                Content="{x:Null}"
+                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
                 <ContentPresenter.RenderTransform>
                   <TransformGroup>
                     <ScaleTransform />

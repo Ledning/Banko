@@ -35,6 +35,5 @@ namespace BankoProject.Views
       this.Height = this.MaxHeight;
       this.Width = this.MaxWidth;
     }
-
   }
 }

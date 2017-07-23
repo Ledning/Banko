@@ -19,8 +19,8 @@ namespace BankoProject.ViewModels.Flyout
 {
   class ControlPanelFlyoutViewModel : Screen, IFlyoutItem
   {
-
     #region Fields
+
     private readonly ILog _log = LogManager.GetLog(typeof(MainWindowViewModel));
     private BingoEvent _bingoEvent;
     private bool _isOpen = false;
@@ -28,6 +28,7 @@ namespace BankoProject.ViewModels.Flyout
     private IEventAggregator _events;
     private IWindowManager _windowManager;
     private int _selectedScreen;
+
     #endregion
 
     //IMPORTANT
@@ -35,6 +36,7 @@ namespace BankoProject.ViewModels.Flyout
     //On the other hand, this one is 100% called before the flyout is shown, so this works for these. (not for anything else afaik.)
 
     #region Constructor
+
     public ControlPanelFlyoutViewModel()
     {
       Event = IoC.Get<BingoEvent>();
@@ -47,7 +49,6 @@ namespace BankoProject.ViewModels.Flyout
       RunPeriodicAsync(UpdateScreensAvailable, dueTime, interval, CancellationToken.None);
       SelectedScreen = Event.WindowSettings.ChoosenPresentationScreen;
     }
-    
 
     #endregion
 
@@ -82,18 +83,19 @@ namespace BankoProject.ViewModels.Flyout
         NotifyOfPropertyChange(() => IsOpen);
       }
     }
+
     #endregion
 
     #region Overrides of ViewAware
 
     protected override void OnViewReady(object view)
     {
-
     }
 
     #endregion
 
     #region Async stuff
+
     private void UpdateScreensAvailable()
     {
       List<WpfScreenHelper.Screen> result = ScrnHelper.AllScreens.ToList();
@@ -125,9 +127,11 @@ namespace BankoProject.ViewModels.Flyout
           await Task.Delay(interval, token);
       }
     }
+
     #endregion
 
     #region Methods
+
     public void ToggleBingo()
     {
       if (Event != null)
@@ -202,7 +206,11 @@ namespace BankoProject.ViewModels.Flyout
     public int SelectedScreen
     {
       get { return _selectedScreen; }
-      set { _selectedScreen = value; NotifyOfPropertyChange(() => SelectedScreen); }
+      set
+      {
+        _selectedScreen = value;
+        NotifyOfPropertyChange(() => SelectedScreen);
+      }
     }
 
 
@@ -210,10 +218,14 @@ namespace BankoProject.ViewModels.Flyout
     {
       Event.WindowSettings.PrsSettings.State = WindowState.Normal;
       Event.WindowSettings.ChoosenPresentationScreen = SelectedScreen;
-      Event.WindowSettings.PrsSettings.Width = (int)Event.WindowSettings.Screens[Event.WindowSettings.ChoosenPresentationScreen].WorkingArea.Width;
-      Event.WindowSettings.PrsSettings.Height = (int)Event.WindowSettings.Screens[Event.WindowSettings.ChoosenPresentationScreen].WorkingArea.Height;
-      Event.WindowSettings.PrsSettings.Left = (int)Event.WindowSettings.Screens[Event.WindowSettings.ChoosenPresentationScreen].WorkingArea.Left;
-      Event.WindowSettings.PrsSettings.Top = (int)Event.WindowSettings.Screens[Event.WindowSettings.ChoosenPresentationScreen].WorkingArea.Top;
+      Event.WindowSettings.PrsSettings.Width = (int) Event.WindowSettings
+        .Screens[Event.WindowSettings.ChoosenPresentationScreen].WorkingArea.Width;
+      Event.WindowSettings.PrsSettings.Height = (int) Event.WindowSettings
+        .Screens[Event.WindowSettings.ChoosenPresentationScreen].WorkingArea.Height;
+      Event.WindowSettings.PrsSettings.Left = (int) Event.WindowSettings
+        .Screens[Event.WindowSettings.ChoosenPresentationScreen].WorkingArea.Left;
+      Event.WindowSettings.PrsSettings.Top = (int) Event.WindowSettings
+        .Screens[Event.WindowSettings.ChoosenPresentationScreen].WorkingArea.Top;
       Event.WindowSettings.PrsSettings.State = WindowState.Maximized;
     }
 
@@ -221,6 +233,7 @@ namespace BankoProject.ViewModels.Flyout
     {
       Event.WindowSettings.ToggleBG();
     }
+
     #endregion
   }
 }

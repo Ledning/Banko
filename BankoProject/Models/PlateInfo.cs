@@ -21,11 +21,9 @@ namespace BankoProject.Models
     private bool _hasPlatesBeenGenerated = false;
     private string _saveDirectory;
 
-    [XmlIgnore]
-    private Generator _cardGenerator;
+    [XmlIgnore] private Generator _cardGenerator;
 
-    [XmlIgnore]
-    public List<int[,]> CardList;
+    [XmlIgnore] public List<int[,]> CardList;
 
     public PlateInfo()
     {
@@ -38,11 +36,8 @@ namespace BankoProject.Models
     }
 
 
-
-
     public bool DoesDirectoryExist()
     {
-
       if (Directory.Exists(SaveDirectory + "\\BingoBankoKontrol"))
       {
         return true;
@@ -62,25 +57,39 @@ namespace BankoProject.Models
     public int PlatesGenerated
     {
       get { return _platesGenerated; }
-      set { _platesGenerated = value; NotifyOfPropertyChange(()=>PlatesGenerated);}
+      set
+      {
+        _platesGenerated = value;
+        NotifyOfPropertyChange(() => PlatesGenerated);
+      }
     }
+
     public int PlatesUsed
     {
       get { return _platesUsed; }
-      set { _platesUsed = value; NotifyOfPropertyChange(()=>PlatesUsed);}
+      set
+      {
+        _platesUsed = value;
+        NotifyOfPropertyChange(() => PlatesUsed);
+      }
     }
 
     [XmlIgnore]
     public Generator CardGenerator
     {
       get { return _cardGenerator; }
-      set { _cardGenerator = value;}
+      set { _cardGenerator = value; }
     }
 
     public bool HasPlatesBeenGenerated
     {
       get { return _hasPlatesBeenGenerated; }
-      set { _hasPlatesBeenGenerated = value; NotifyOfPropertyChange(()=>HasPlatesBeenGenerated); NotifyOfPropertyChange(()=>CanGeneratePlates);}
+      set
+      {
+        _hasPlatesBeenGenerated = value;
+        NotifyOfPropertyChange(() => HasPlatesBeenGenerated);
+        NotifyOfPropertyChange(() => CanGeneratePlates);
+      }
     }
 
     public bool CanGeneratePlates

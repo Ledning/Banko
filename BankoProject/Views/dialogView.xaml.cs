@@ -28,7 +28,6 @@ namespace BankoProject.Views
 
     private void Text_TextChanged(object sender, TextChangedEventArgs e)
     {
-
     }
   }
 }

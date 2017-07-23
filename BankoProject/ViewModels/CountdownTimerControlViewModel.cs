@@ -5,7 +5,6 @@ using Catel.MVVM;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.ComponentModel.Composition;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
@@ -19,23 +18,27 @@ namespace BankoProject.ViewModels
   public class CountdownTimerControlViewModel : Screen, IMainViewItem
   {
     #region Fields
+
     public CountdowntimerBigScreenViewModel CTBSVM { get; set; }
     private WindowManager _winMan;
 
     private bool _countUp; //this property decides if the timer counts up or down
-    private int _countDownInput;//should prolly enter seconds
-    private BindableCollection<Team> _allTeams; 
+    private int _countDownInput; //should prolly enter seconds
+    private BindableCollection<Team> _allTeams;
     private Stopwatch _stopWatch;
     private DispatcherTimer _timer;
     private string _currentTime;
 
     //dispatcherTimer_Tick
     private TimeSpan _currentTimeSpan;
+
     private TimeSpan _localTimeSpan;
-    private TimeSpan _emptyTimeSpan; 
+    private TimeSpan _emptyTimeSpan;
+
     #endregion
 
     #region Constructors
+
     public CountdownTimerControlViewModel(BindableCollection<Team> allTeams, int seconds)
     {
       CTBSVM = new CountdowntimerBigScreenViewModel();
@@ -58,13 +61,19 @@ namespace BankoProject.ViewModels
         this._countUp = false;
       }
     }
+
     #endregion
 
     #region Properties
+
     public int CountDownInput
     {
       get { return _countDownInput; }
-      set { _countDownInput = value; NotifyOfPropertyChange(() => CountDownInput); }
+      set
+      {
+        _countDownInput = value;
+        NotifyOfPropertyChange(() => CountDownInput);
+      }
     }
 
     public Team SelectedTeam { get; set; }
@@ -72,17 +81,27 @@ namespace BankoProject.ViewModels
     public BindableCollection<Team> AllTeams
     {
       get { return _allTeams; }
-      set { _allTeams = value; NotifyOfPropertyChange(() => _allTeams); }
+      set
+      {
+        _allTeams = value;
+        NotifyOfPropertyChange(() => _allTeams);
+      }
     }
 
     public string CurrentTime
     {
       get { return _currentTime; }
-      set { _currentTime = value; NotifyOfPropertyChange(() => CurrentTime); }
+      set
+      {
+        _currentTime = value;
+        NotifyOfPropertyChange(() => CurrentTime);
+      }
     }
+
     #endregion
 
     #region Methods
+
     private void dispatcherTimer_Tick(object sender, EventArgs e)
     {
       if (_countUp)
@@ -106,7 +125,7 @@ namespace BankoProject.ViewModels
     private string FormatString(TimeSpan timespan)
     {
       string currentTime = String.Format("{0:00}:{1:00}:{2:00}",
-                timespan.Minutes, timespan.Seconds, timespan.Milliseconds / 10);
+        timespan.Minutes, timespan.Seconds, timespan.Milliseconds / 10);
       return currentTime;
     }
 
@@ -128,14 +147,14 @@ namespace BankoProject.ViewModels
         this._countUp = false;
         this.CountDownInput = 0;
       }
-    } 
+    }
+
     #endregion
 
     #region TimerMethods
 
     public void TimerStart()
     {
-      
       if (!this._timer.IsEnabled)
       {
         this._timer.Start();

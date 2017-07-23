@@ -9,10 +9,12 @@ using Caliburn.Micro;
 
 namespace BankoProject.ViewModels.PresentationScreen
 {
-  class PlateOverlayViewModel: Conductor<Screen>.Collection.OneActive, IPresentationScreenItem
+  class PlateOverlayViewModel : Conductor<Screen>.Collection.OneActive, IPresentationScreenItem
   {
     private BingoEvent _event;
+
     #region Constructor
+
     //det store boardoverview
     public PlateOverlayViewModel()
     {
@@ -21,7 +23,11 @@ namespace BankoProject.ViewModels.PresentationScreen
     public BingoEvent Event
     {
       get { return _event; }
-      set { _event = value; NotifyOfPropertyChange(()=>Event);}
+      set
+      {
+        _event = value;
+        NotifyOfPropertyChange(() => Event);
+      }
     }
 
     #endregion

@@ -19,11 +19,11 @@ namespace BankoProject.ViewModels
 
     //The colour of the button at start and finish. NSFP. Modify if different colours are wanted. cannot be made from designer. 
     string finishCoulour = "#FF3FBD5B";
+
     string unfinishColour = "#FFBF5050";
     private BingoEvent _event;
-    
-    //buttonsize. maybe make scale with button count? certainly possible, try scaling in control and syncing that here. SFP
 
+    //buttonsize. maybe make scale with button count? certainly possible, try scaling in control and syncing that here. SFP
 
 
     //list of buttons on the screen. set to 0 if no buttons are desired, it will now show only the timer. hopefully. helpers might be needed. SFP 
@@ -34,7 +34,6 @@ namespace BankoProject.ViewModels
 
     public CountdowntimerBigScreenViewModel()
     {
-
     }
 
     #region Overrides of ViewAware
@@ -54,7 +53,11 @@ namespace BankoProject.ViewModels
     public BingoEvent Event
     {
       get { return _event; }
-      set { _event = value; NotifyOfPropertyChange(()=>Event);}
+      set
+      {
+        _event = value;
+        NotifyOfPropertyChange(() => Event);
+      }
     }
 
     #endregion

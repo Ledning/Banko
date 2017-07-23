@@ -3,7 +3,6 @@ using Caliburn.Micro;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.ComponentModel.Composition;
 using System.Dynamic;
 using System.IO;
 using System.Linq;
@@ -20,6 +19,7 @@ namespace BankoProject.ViewModels
   class WelcomeViewModel : Screen, IMainViewItem
   {
     #region Fields
+
     private IWindowManager _winMan;
     private IEventAggregator _events;
     private BingoEvent _bingoEvent;
@@ -27,9 +27,11 @@ namespace BankoProject.ViewModels
     private KeyValuePair<string, string> _selectedEvent;
     private BindableCollection<KeyValuePair<string, string>> _latestEvents;
     private string _title;
+
     #endregion
 
     #region Constructors
+
     public WelcomeViewModel()
     {
       Title = "BingoBanko Kontrol";
@@ -44,9 +46,11 @@ namespace BankoProject.ViewModels
       var interval = TimeSpan.FromSeconds(10);
       RunPeriodicAsync(UpdateLatestEvents, dueTime, interval, CancellationToken.None);
     }
+
     #endregion
 
     #region Properties
+
     public BingoEvent Event
     {
       get { return _bingoEvent; }
@@ -88,9 +92,11 @@ namespace BankoProject.ViewModels
     {
       get { return _latestEvents; }
     }
+
     #endregion
-    
+
     #region Overrides for ViewAware
+
     protected override void OnViewReady(object view)
     {
       SaveDirectory = System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
@@ -98,9 +104,11 @@ namespace BankoProject.ViewModels
       _events = IoC.Get<IEventAggregator>();
       Event = IoC.Get<BingoEvent>();
     }
+
     #endregion
-    
+
     #region Methods
+
     /// <summary>
     /// Used for doing things when doubleclicking latestevents
     /// </summary>
@@ -108,13 +116,17 @@ namespace BankoProject.ViewModels
     {
       if (SelectedEvent.Key != null)
       {
-        _events.PublishOnCurrentThread(new CommunicationObject(ApplicationWideEnums.MessageTypes.Load, ApplicationWideEnums.SenderTypes.WelcomeView, SelectedEvent.Key.Replace(".xml", "")));
-        _events.PublishOnUIThread(new CommunicationObject(ApplicationWideEnums.MessageTypes.ChngControlPanelView, ApplicationWideEnums.SenderTypes.WelcomeView));
+        _events.PublishOnCurrentThread(new CommunicationObject(ApplicationWideEnums.MessageTypes.Load,
+          ApplicationWideEnums.SenderTypes.WelcomeView, SelectedEvent.Key.Replace(".xml", "")));
+        _events.PublishOnUIThread(new CommunicationObject(ApplicationWideEnums.MessageTypes.ChngControlPanelView,
+          ApplicationWideEnums.SenderTypes.WelcomeView));
       }
-    } 
+    }
+
     #endregion
 
     #region BindableCollectionManipulation
+
     //So some of these might not be entirely needed, but i was not 100% sure on waht the built in ones for keyvaluepair did, so i thought this was better
     public bool ContainsKey(BindableCollection<KeyValuePair<string, string>> inputCollection, string key)
     {
@@ -128,9 +140,9 @@ namespace BankoProject.ViewModels
       return false;
     }
 
-    public void RemoveKeyPair(BindableCollection<KeyValuePair<string,string>> inputCollection, string targetkey)
+    public void RemoveKeyPair(BindableCollection<KeyValuePair<string, string>> inputCollection, string targetkey)
     {
-      foreach (KeyValuePair<string,string> pair in inputCollection)
+      foreach (KeyValuePair<string, string> pair in inputCollection)
       {
         if (pair.Key == targetkey)
         {
@@ -138,9 +150,11 @@ namespace BankoProject.ViewModels
         }
       }
     }
+
     #endregion
 
     #region asynctask latestevents
+
     public void UpdateLatestEvents()
     {
       bool changeHappened = false;
@@ -178,6 +192,7 @@ namespace BankoProject.ViewModels
         NotifyOfPropertyChange(() => LatestEvents);
       }
     }
+
     private static async Task RunPeriodicAsync(System.Action onTick,
       TimeSpan dueTime,
       TimeSpan interval,
@@ -202,6 +217,7 @@ namespace BankoProject.ViewModels
     #endregion
 
     #region Loading/creating
+
     public void CreateEvent()
     {
       bool? result = _winMan.ShowDialog(new CreateEventViewModel());
@@ -221,7 +237,7 @@ namespace BankoProject.ViewModels
 
     //TODO: Ordentlig boks til titlen i WelcomewView.
     //Den ligner sku en sæk lort lige pt
-    
+
     public void OpenFileDialog()
     {
       var ofd = new Microsoft.Win32.OpenFileDialog()
@@ -242,11 +258,13 @@ namespace BankoProject.ViewModels
           ApplicationWideEnums.SenderTypes.WelcomeView));
       }
     }
+
     #endregion
 
     #region DirectoryStuff
 
     private string _saveDirectory;
+
     //TODO: Make these use a string for each of the subdirectories and the main directory, no chance of spelling error
     private bool ApplicationDirectoryExists()
     {

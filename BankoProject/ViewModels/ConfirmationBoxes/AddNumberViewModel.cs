@@ -40,13 +40,21 @@ namespace BankoProject.ViewModels.ConfirmationBoxes
     public bool CanConfirmNumber
     {
       get { return _canConfirmNumber; }
-      set { _canConfirmNumber = value; NotifyOfPropertyChange(()=>CanConfirmNumber); }
+      set
+      {
+        _canConfirmNumber = value;
+        NotifyOfPropertyChange(() => CanConfirmNumber);
+      }
     }
 
     public int NumberToAdd
     {
       get { return _numberToAdd; }
-      set { _numberToAdd = value; NotifyOfPropertyChange(() => NumberToAdd); }
+      set
+      {
+        _numberToAdd = value;
+        NotifyOfPropertyChange(() => NumberToAdd);
+      }
     }
 
     #region Implementation of IDataErrorInfo
@@ -81,7 +89,6 @@ namespace BankoProject.ViewModels.ConfirmationBoxes
         return result;
       }
     }
-
 
 
     public bool CheckIfNumberIsPicked(int number)

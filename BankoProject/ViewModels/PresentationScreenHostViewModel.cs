@@ -13,27 +13,37 @@ namespace BankoProject.ViewModels
   /// <summary>
   ///   This is where you would set up all the shit, so when this is put up, the rest follows.
   /// </summary>
-  class PresentationScreenHostViewModel : Conductor<IPresentationScreenItem>.Collection.OneActive, IHandle<CommunicationObject>
+  class PresentationScreenHostViewModel : Conductor<IPresentationScreenItem>.Collection.OneActive,
+    IHandle<CommunicationObject>
   {
     #region Fields
+
     private readonly ILog _log = LogManager.GetLog(typeof(PresentationScreenHostViewModel));
     private BingoEvent _event;
     private IEventAggregator _eventAgg;
     private IPresentationScreenItem _currentPrezItem = new FullscreenImageViewModel();
     private bool _fadeOut;
+
     #endregion
 
     #region Constructors
+
     public PresentationScreenHostViewModel()
     {
-    } 
+    }
+
     #endregion
 
     #region Properties
+
     public BingoEvent Event
     {
       get { return _event; }
-      set { _event = value; NotifyOfPropertyChange(() => Event); }
+      set
+      {
+        _event = value;
+        NotifyOfPropertyChange(() => Event);
+      }
     }
 
     public IPresentationScreenItem CurrentPrezItem
@@ -49,10 +59,7 @@ namespace BankoProject.ViewModels
 
     public bool FadeOut
     {
-      get
-      {
-        return _fadeOut;
-      }
+      get { return _fadeOut; }
 
       set
       {
@@ -60,6 +67,7 @@ namespace BankoProject.ViewModels
         NotifyOfPropertyChange(() => FadeOut);
       }
     }
+
     #endregion
 
     #region Overrides of ViewAware
@@ -69,11 +77,15 @@ namespace BankoProject.ViewModels
       Event = IoC.Get<BingoEvent>();
       _eventAgg = IoC.Get<IEventAggregator>();
       _eventAgg.Subscribe(this);
-      Event.WindowSettings.PrsSettings.Width = (int)Event.WindowSettings.Screens[Event.WindowSettings.ChoosenPresentationScreen].WorkingArea.Width;
-      Event.WindowSettings.PrsSettings.Height = (int)Event.WindowSettings.Screens[Event.WindowSettings.ChoosenPresentationScreen].WorkingArea.Height;
+      Event.WindowSettings.PrsSettings.Width = (int) Event.WindowSettings
+        .Screens[Event.WindowSettings.ChoosenPresentationScreen].WorkingArea.Width;
+      Event.WindowSettings.PrsSettings.Height = (int) Event.WindowSettings
+        .Screens[Event.WindowSettings.ChoosenPresentationScreen].WorkingArea.Height;
 
-      Event.WindowSettings.PrsSettings.Left = (int)Event.WindowSettings.Screens[Event.WindowSettings.ChoosenPresentationScreen].WorkingArea.Left;
-      Event.WindowSettings.PrsSettings.Top = (int)Event.WindowSettings.Screens[Event.WindowSettings.ChoosenPresentationScreen].WorkingArea.Top;
+      Event.WindowSettings.PrsSettings.Left = (int) Event.WindowSettings
+        .Screens[Event.WindowSettings.ChoosenPresentationScreen].WorkingArea.Left;
+      Event.WindowSettings.PrsSettings.Top = (int) Event.WindowSettings
+        .Screens[Event.WindowSettings.ChoosenPresentationScreen].WorkingArea.Top;
       Event.WindowSettings.PrsSettings.State = WindowState.Maximized;
       CurrentPrezItem = new FullscreenImageViewModel();
       ActivateItem(CurrentPrezItem);
@@ -82,6 +94,7 @@ namespace BankoProject.ViewModels
     #endregion
 
     #region Methods
+
     public int GetPresentationScreen()
     {
       //TODO: Det her skal laves om så man kan vælge en specifik skærm fra en liste
@@ -91,7 +104,8 @@ namespace BankoProject.ViewModels
           return screenNr;
       _log.Warn("No Presentation screen was found. ERROR");
       return -1;
-    } 
+    }
+
     #endregion
 
     #region Implementation of IHandle<CommunicationObject>
@@ -128,7 +142,7 @@ namespace BankoProject.ViewModels
               ActivateItem(new PlateOverlayViewModel());
               Event.WindowSettings.PrsSettings.OverlaySettings.IsOverlayVisible = Visibility.Visible;
               _log.Info("BoardOLhandled");
-            } 
+            }
           }
           break;
         case ApplicationWideEnums.MessageTypes.LatestNumbers:
@@ -140,7 +154,7 @@ namespace BankoProject.ViewModels
               ActivateItem(new FixedNumberBarViewModel());
               Event.WindowSettings.PrsSettings.OverlaySettings.IsOverlayVisible = Visibility.Visible;
               _log.Info("latestnumolhandled");
-            } 
+            }
           }
           break;
         case ApplicationWideEnums.MessageTypes.BingoHappened:
@@ -158,7 +172,7 @@ namespace BankoProject.ViewModels
               fvm.ShowBingo();
               _log.Info("bingohapndOLHandled");
               */
-            } 
+            }
           }
           break;
         case ApplicationWideEnums.MessageTypes.ClosePrez:
@@ -184,7 +198,7 @@ namespace BankoProject.ViewModels
             {
               ActivateItem(new FullscreenImageViewModel(true));
               _log.Info("fullscrnOLhandled");
-            } 
+            }
           }
           break;
 

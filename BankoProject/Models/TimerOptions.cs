@@ -17,18 +17,17 @@ namespace BankoProject.Models
     private const string STOP = "Stop";
 
     #region Fields
+
     private TimeSpan _timerTime;
     private string _textTime;
     private string _error;
     private bool _canShow;
     private string _toggleTimerText;
 
-    [XmlIgnore]
-    private BingoTimer _bTimer;
+    [XmlIgnore] private BingoTimer _bTimer;
     private bool _countUp;
     private bool _resetTimer;
     private bool Start_StopWatch = true;
-
 
     #endregion
 
@@ -36,8 +35,8 @@ namespace BankoProject.Models
 
     public TimerOptions()
     {
-      _timerTime = new TimeSpan(0,0,0);
-      NotifyOfPropertyChange(()=>TimerTime);
+      _timerTime = new TimeSpan(0, 0, 0);
+      NotifyOfPropertyChange(() => TimerTime);
       TextTime = "05:00";
       CanShow = true;
       ToggleTimerText = START;
@@ -46,7 +45,6 @@ namespace BankoProject.Models
       BTimer = new BingoTimer(0);
       BTimer.LocalTime = "00:00:00";
     }
-
 
     #endregion
 
@@ -66,6 +64,7 @@ namespace BankoProject.Models
         Start_StopWatch = true;
       }
     }
+
     public void StartTimer()
     {
       if (ResetTimer)
@@ -76,7 +75,7 @@ namespace BankoProject.Models
         }
         else
         {
-          BTimer = new BingoTimer((int)TimerTime.TotalSeconds);
+          BTimer = new BingoTimer((int) TimerTime.TotalSeconds);
         }
         BTimer.InitializeNewCountDownTimer();
         BTimer.TimerStart();
@@ -85,8 +84,8 @@ namespace BankoProject.Models
       }
       else
       {
-          BTimer.TimerStart();
-          BTimer.IsTimerStarted = true;
+        BTimer.TimerStart();
+        BTimer.IsTimerStarted = true;
       }
       ToggleTimerText = STOP;
     }
@@ -102,27 +101,26 @@ namespace BankoProject.Models
 
     #region Props
 
-
-
     public TimeSpan TimerTime
     {
       //TODO: Kan crashes nemt ved at skrive ulovlige input.
-      get
-      {
-        return TimeSpan.Parse("0:" + TextTime);
-      }
+      get { return TimeSpan.Parse("0:" + TextTime); }
     }
 
     public string TextTime
     {
       get { return _textTime; }
-      set { _textTime = value; NotifyOfPropertyChange(()=>TextTime);
-        if (BTimer !=null)
+      set
+      {
+        _textTime = value;
+        NotifyOfPropertyChange(() => TextTime);
+        if (BTimer != null)
         {
           BTimer.LocalTime = _textTime;
         }
       }
     }
+
     #endregion
 
     #region Implementation of IDataErrorInfo
@@ -138,7 +136,8 @@ namespace BankoProject.Models
           try
           {
             var temp = DateTime.Parse(TextTime);
-            convertedTimespan = TimeSpan.Parse("0:" + TextTime);//this thinks its in 24 hr format, while it is actually in mm:ss
+            convertedTimespan =
+              TimeSpan.Parse("0:" + TextTime); //this thinks its in 24 hr format, while it is actually in mm:ss
           }
           catch (Exception)
           {
@@ -153,7 +152,7 @@ namespace BankoProject.Models
               result = "The Interval is 0 or less.";
               CanShow = false;
             }
-            if (convertedTimespan >= new TimeSpan(1,0,0))
+            if (convertedTimespan >= new TimeSpan(1, 0, 0))
             {
               result = "The interval is larger than an hour.";
               CanShow = false;
@@ -167,7 +166,6 @@ namespace BankoProject.Models
         }
 
 
-
         if (result == null)
         {
           CanShow = true;
@@ -175,7 +173,6 @@ namespace BankoProject.Models
         return result;
       }
     }
-
 
 
     public string Error
@@ -186,32 +183,52 @@ namespace BankoProject.Models
     public bool CanShow
     {
       get { return _canShow; }
-      set { _canShow = value; NotifyOfPropertyChange(()=>CanShow);}
+      set
+      {
+        _canShow = value;
+        NotifyOfPropertyChange(() => CanShow);
+      }
     }
 
     public string ToggleTimerText
     {
       get { return _toggleTimerText; }
-      set { _toggleTimerText = value; NotifyOfPropertyChange(()=>ToggleTimerText);}
+      set
+      {
+        _toggleTimerText = value;
+        NotifyOfPropertyChange(() => ToggleTimerText);
+      }
     }
 
     public bool CountUp
     {
       get { return _countUp; }
-      set { _countUp = value; NotifyOfPropertyChange(()=>CountUp);}
+      set
+      {
+        _countUp = value;
+        NotifyOfPropertyChange(() => CountUp);
+      }
     }
 
     [XmlIgnore]
     public BingoTimer BTimer
     {
       get { return _bTimer; }
-      set { _bTimer = value; NotifyOfPropertyChange(()=>BTimer);}
+      set
+      {
+        _bTimer = value;
+        NotifyOfPropertyChange(() => BTimer);
+      }
     }
 
     public bool ResetTimer
     {
       get { return _resetTimer; }
-      set { _resetTimer = value; NotifyOfPropertyChange(()=>ResetTimer);}
+      set
+      {
+        _resetTimer = value;
+        NotifyOfPropertyChange(() => ResetTimer);
+      }
     }
 
     #endregion
