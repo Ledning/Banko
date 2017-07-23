@@ -23,6 +23,12 @@
       <Label Content="Knap-farve" FontSize="13" HorizontalAlignment="Center" />
     </Border>
     <xctk:ColorPicker ColorMode="ColorCanvas" Height="20" />
+    <Border Background="CornflowerBlue">
+      <Label Content="Standard farveskemaer" FontSize="13" HorizontalAlignment="Center"></Label>
+    </Border>
+    <Button Content="Original"></Button>
+    <Button Content="Sort/Hvid"></Button>
+    <Button Content="???"></Button>
   </StackPanel>
 
 </UserControl>
