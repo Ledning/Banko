@@ -444,7 +444,7 @@ namespace BankoProject.ViewModels
       to.EventTitle = fr.EventTitle;
       to.Generating = fr.Generating;
       to.NumberBoard = fr.NumberBoard;
-
+      to.VisOptions = fr.VisOptions;
       to.RecentFiles = fr.RecentFiles;
       to.WindowSettings = fr.WindowSettings;
       to.SInfo = fr.SInfo;

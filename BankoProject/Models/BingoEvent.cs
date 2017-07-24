@@ -21,6 +21,7 @@ namespace BankoProject.Models
     private string _eventTitle;
     private DateTime _creationTime;
     private WinSettings _winSettings;
+    private VisualsOptions _visualsOptions;
     private TimerOptions _timeOpt;
     private bool _initialised = false;
     private bool _generating = false;
@@ -64,7 +65,7 @@ namespace BankoProject.Models
       set
       {
         _eventTitle = value;
-        NotifyOfPropertyChange(EventTitle);
+        NotifyOfPropertyChange(()=>EventTitle);
       }
     }
 
@@ -268,6 +269,12 @@ namespace BankoProject.Models
       }
     }
 
+    public VisualsOptions VisOptions
+    {
+      get { return _visualsOptions; }
+      set { _visualsOptions = value; NotifyOfPropertyChange(()=>VisOptions);}
+    }
+
     #endregion
 
     public void Initialize(string seed, string title, int pladetal)
@@ -282,6 +289,8 @@ namespace BankoProject.Models
       SInfo = new SeedInfo(seed);
       PInfo = new PlateInfo();
       WindowSettings = new WinSettings();
+      VisOptions = new VisualsOptions();
+      VisOptions.SetOriginalColorScheme();
       EventTitle = title;
       PInfo.PlatesGenerated = pladetal;
       PInfoText = "Antal plader: " + pladetal;
@@ -330,6 +339,8 @@ namespace BankoProject.Models
       EventTitle = title;
       PInfo.PlatesGenerated = pladetal;
       WindowSettings = new WinSettings();
+      VisOptions = new VisualsOptions();
+      VisOptions.SetOriginalColorScheme();
       _creationTime = DateTime.Now;
       NotifyOfPropertyChange(() => CreationTime);
       _initialised = true;
