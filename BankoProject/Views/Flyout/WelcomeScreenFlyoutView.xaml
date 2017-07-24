@@ -28,7 +28,7 @@
     </Border>
     <Button Content="Original"></Button>
     <Button Content="Sort/Hvid"></Button>
-    <Button Content="???"></Button>
+    <Button Content="??"></Button>
   </StackPanel>
 
 </UserControl>
