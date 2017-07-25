@@ -20,16 +20,9 @@
   dialog:DialogParticipation.Register="ShowDialog"
   cal:Message.Attach="[Event Closing] = [Action OnApplicationExit()]">
   <metro:MetroWindow.Resources>
-    <ResourceDictionary>
-      <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="Styles/GeneralStyle.xaml" />
-        <ResourceDictionary Source="Styles/ButtonStyle.xaml" />
-      </ResourceDictionary.MergedDictionaries>
-    </ResourceDictionary>
+    <ResourceDictionary Source="Styles/ButtonStyle.xaml" />
   </metro:MetroWindow.Resources>
-  <metro:MetroWindow.Background>
-    <ImageBrush ImageSource="/BankoProject;component/Resources/10995537_695452673897093_536015149067717983_o.jpg" />
-  </metro:MetroWindow.Background>
+
 
   <Viewbox VerticalAlignment="Top" ClipToBounds="True">
     <metro:MetroContentControl x:Name="ActiveItem" />

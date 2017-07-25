@@ -23,8 +23,10 @@ using System.Windows.Forms;
 using System.Xml;
 using System.Xml.Serialization;
 using BankoProject.ViewModels.Flyout;
+using MahApps.Metro;
 using FormScrn = System.Windows.Forms.Screen;
 using WpfScreenHelper;
+using Application = System.Windows.Application;
 using MessageBox = System.Windows.MessageBox;
 using ScrnHelpScrn = WpfScreenHelper.Screen;
 
@@ -74,6 +76,8 @@ namespace BankoProject.ViewModels
     public MainWindowViewModel()
     {
       ActivateItem(new WelcomeViewModel());
+      Tuple<AppTheme, Accent> appstyle = ThemeManager.DetectAppStyle(Application.Current);
+      ThemeManager.ChangeAppStyle(Application.Current, ThemeManager.GetAccent("Green"), ThemeManager.GetAppTheme("BaseDark"));
     }
 
     #endregion
